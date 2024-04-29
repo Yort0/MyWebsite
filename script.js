@@ -5,10 +5,13 @@ const deleteButtonsContainer = document.getElementById('deleteButtons');
 
 // Add the paste event listener
 inputContainer.addEventListener('paste', function(event) {
-    event.preventDefault(); 
-    const clipboardData = event.clipboardData || window.clipboardData;  
-    const pastedText = clipboardData.getData('text/plain');
-    inputContainer.textContent = pastedText; 
+    // Only prevent the default if the clipboard contains text content
+    if (event.clipboardData && event.clipboardData.types.includes('text/plain')) {
+        event.preventDefault(); 
+        const clipboardData = event.clipboardData || window.clipboardData;  
+        const pastedText = clipboardData.getData('text/plain');
+        inputContainer.textContent = pastedText; 
+    }
 });
 
 processButton.addEventListener('click', function() {
