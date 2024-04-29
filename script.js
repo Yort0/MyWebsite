@@ -1,31 +1,32 @@
 const processButton = document.getElementById('processButton');
-const inputArea = document.getElementById('tableInput');
+const inputContainer = document.getElementById('inputContainer');
 const outputArea = document.getElementById('tableOutput');
+const deleteButtonsContainer = document.getElementById('deleteButtons');
 
 processButton.addEventListener('click', function() {
-    const rawTable = inputArea.value;
-    const processedTable = processAndDisplayTable(rawTable);
-    outputArea.innerHTML = processedTable;
+    const inputText = inputContainer.textContent;
+    const processedTable = processAndDisplayTable(inputText);
+    outputArea.firstChild.innerHTML = processedTable; // Inject into existing table
 });
 
-function processAndDisplayTable(tableText) {
-    const rows = tableText.split('\n');
-    let newTableHTML = '<table style="border: 1px solid black; font-size: 0.8rem;">'; // Table style with font size
+function processAndDisplayTable(inputText) {
+    // TODO: Add your table processing logic here  
+    // 1. Split the text into lines 
+    // 2. Split each line into cells (tabs or consistent spacing)
+    // 3. Generate the HTML for the table structure
 
-    for (let i = 0; i < rows.length; i++) {
-        newTableHTML += '<tr>';
-        const cells = rows[i].split('\t');
-        cells.forEach(cell => {
-            newTableHTML += `<td>${cell} <button onclick="deleteRow(this)">&#10006;</button></td>`;  // Add delete button
-        });
-        newTableHTML += '</tr>';
-    }
-
+    // Placeholder - remove this 
+    let newTableHTML = '<table style="border: 1px solid black; font-size: 0.8rem;">'; 
+    newTableHTML += '<tr><td>Sample Row</td><td>Sample Cell</td></tr>'; 
     newTableHTML += '</table>';
     return newTableHTML;
 }
 
-function deleteRow(deleteButton) {
-    const tableRow = deleteButton.parentElement.parentElement; // Get the table row
-    tableRow.parentNode.removeChild(tableRow); // Remove the row from the table
+function deleteRow(rowIndex) {
+    const table = document.querySelector('#tableOutput table');
+    const rowToDelete = table.rows[rowIndex];
+    rowToDelete.remove();
+
+    const deleteButton = deleteButtonsContainer.childNodes[rowIndex]; 
+    deleteButton.remove();
 }
