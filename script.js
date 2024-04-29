@@ -3,10 +3,18 @@ const inputContainer = document.getElementById('inputContainer');
 const outputArea = document.getElementById('tableOutput');
 const deleteButtonsContainer = document.getElementById('deleteButtons');
 
+// Add the paste event listener
+inputContainer.addEventListener('paste', function(event) {
+    event.preventDefault(); 
+    const clipboardData = event.clipboardData || window.clipboardData;  
+    const pastedText = clipboardData.getData('text/plain');
+    inputContainer.textContent = pastedText; 
+});
+
 processButton.addEventListener('click', function() {
     const inputText = inputContainer.textContent;
     const processedTable = processAndDisplayTable(inputText);
-    outputArea.firstChild.innerHTML = processedTable; // Inject into existing table
+    outputArea.firstChild.innerHTML = processedTable; 
 });
 
 function processAndDisplayTable(inputText) {
