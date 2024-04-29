@@ -1,3 +1,5 @@
+inputContainer.focus(); // Try adding this line
+
 const processButton = document.getElementById('processButton');
 const inputContainer = document.getElementById('inputContainer');
 const outputArea = document.getElementById('tableOutput');
