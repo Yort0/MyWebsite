@@ -9,25 +9,23 @@ processButton.addEventListener('click', function() {
 });
 
 function processAndDisplayTable(tableText) {
-   // You'll need your table processing and HTML generation logic here.
-   // Example (assumes tab-separated table):
-   const rows = tableText.split('\n');
-   let newTableHTML = '<table>';
+    const rows = tableText.split('\n');
+    let newTableHTML = '<table style="border: 1px solid black; font-size: 0.8rem;">'; // Table style with font size
 
-   for (let i = 0; i < rows.length; i++) {
-       if (shouldIncludeRow(rows[i])) { // Add your logic to decide which rows to keep
-           newTableHTML += '<tr>';
-           const cells = rows[i].split('\t');
-           cells.forEach(cell => newTableHTML += `<td>${cell}</td>`);
-           newTableHTML += '</tr>';
-       }
-   }
+    for (let i = 0; i < rows.length; i++) {
+        newTableHTML += '<tr>';
+        const cells = rows[i].split('\t');
+        cells.forEach(cell => {
+            newTableHTML += `<td>${cell} <button onclick="deleteRow(this)">&#10006;</button></td>`;  // Add delete button
+        });
+        newTableHTML += '</tr>';
+    }
 
-   newTableHTML += '</table>';
-   return newTableHTML;
+    newTableHTML += '</table>';
+    return newTableHTML;
 }
 
-function shouldIncludeRow(row) {
-    // Add your own logic here - e.g., return false to delete first row
-    return true; 
+function deleteRow(deleteButton) {
+    const tableRow = deleteButton.parentElement.parentElement; // Get the table row
+    tableRow.parentNode.removeChild(tableRow); // Remove the row from the table
 }
