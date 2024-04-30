@@ -21,18 +21,19 @@ function formatTable(table) {
     const rowCount = rows.length;
     const colCount = rows[0].cells.length;
 
-    let newTableHTML = '<table>';
+    let newTableHTML = '';
+    for (let j = 0; j < colCount; j++) {
+        newTableHTML += `<button class="deleteColumnButton" onclick="deleteColumn(${j})">Delete Column ${j + 1}</button>`;
+    }
+    newTableHTML += '<table>';
     for (let i = 0; i < rowCount; i++) {
         newTableHTML += '<tr>';
         for (let j = 0; j < colCount; j++) {
             if (i === 0) {
-                newTableHTML += `<th>${rows[i].cells[j].innerHTML}<button class="deleteColumnButton" onclick="deleteColumn(${j})">Delete Column</button></th>`;
+                newTableHTML += `<th>${rows[i].cells[j].innerHTML}</th>`;
             } else {
                 newTableHTML += `<td>${rows[i].cells[j].innerHTML}</td>`;
             }
-        }
-        if (i !== 0) {
-            newTableHTML += `<td><button class="deleteRowButton" onclick="deleteRow(${i})">Delete Row</button></td>`;
         }
         newTableHTML += '</tr>';
     }
@@ -40,9 +41,13 @@ function formatTable(table) {
     return newTableHTML;
 }
 
-function deleteRow(rowIndex) {
+function deleteRow() {
     const outputTable = document.getElementById('tableOutput').querySelector('table');
-    outputTable.deleteRow(rowIndex);
+    const rowCount = outputTable.rows.length;
+
+    if (rowCount > 0) {
+        outputTable.deleteRow(rowCount - 1);
+    }
 }
 
 function deleteColumn(columnIndex) {
