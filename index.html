@@ -8,16 +8,21 @@
 
         #inputContainer {
             width: 100%;
-            min-height: 200px;
+            height: 200px; /* Fixed height for scrolling */
+            overflow: auto; /* Enable scrolling */
             border: 1px solid #ccc;
             border-radius: 4px;
             padding: 8px;
             font-size: 0.8rem;
-            overflow: auto;
+            margin-bottom: 20px;
         }
 
         #outputContainer {
             margin-top: 20px;
+        }
+
+        #tableOutput {
+            overflow-x: auto; /* Enable horizontal scrolling if needed */
         }
 
         #tableOutput table {
@@ -48,6 +53,16 @@
         .deleteColumnButton:hover {
             background-color: #ff3333;
         }
+
+        .deleteRowButton {
+            float: left; /* Align buttons to the left */
+            margin-right: 10px; /* Add some space between buttons and table */
+        }
+
+        .deleteColumnButton {
+            display: block; /* Display buttons as block elements */
+            margin: 0 auto 10px; /* Center buttons horizontally */
+        }
     </style>
 </head>
 <body>
@@ -57,8 +72,8 @@
 
     <div id="outputContainer">
         <h2>Formatted table:</h2>
-        <div id="tableOutput"></div>
         <button class="deleteRowButton" onclick="deleteRow()">Delete Row</button>
+        <div id="tableOutput"></div>
         <button class="deleteColumnButton" onclick="deleteColumn()">Delete Column</button>
     </div>
 
