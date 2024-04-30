@@ -30,11 +30,17 @@
             border-collapse: collapse;
             font-size: 0.8rem;
             margin-bottom: 10px;
+            position: relative;
         }
 
         #tableOutput table td, #tableOutput table th {
             border: 1px solid black;
             padding: 4px;
+        }
+
+        .deleteButtonContainer {
+            position: relative;
+            display: inline-block;
         }
 
         .deleteButton {
@@ -47,6 +53,9 @@
             cursor: pointer;
             margin-bottom: 10px;
             display: block;
+            position: absolute;
+            right: 100%;
+            margin-right: 10px;
         }
 
         .deleteButton:hover {
