@@ -24,10 +24,9 @@ function formatTable(table) {
     let newTableHTML = '<table>';
     for (let i = 0; i < rowCount; i++) {
         newTableHTML += '<tr>';
-        newTableHTML += `<td><button class="deleteRowButton" onclick="deleteRow(this)">Delete Row</button></td>`;
         for (let j = 0; j < colCount; j++) {
             if (i === 0) {
-                newTableHTML += `<th>${rows[i].cells[j].innerHTML}<button class="deleteColumnButton" onclick="deleteColumn(${j})">Delete Column</button></th>`;
+                newTableHTML += `<th>${rows[i].cells[j].innerHTML}</th>`;
             } else {
                 newTableHTML += `<td>${rows[i].cells[j].innerHTML}</td>`;
             }
@@ -38,16 +37,20 @@ function formatTable(table) {
     return newTableHTML;
 }
 
-function deleteRow(deleteButton) {
-    const tableRow = deleteButton.parentNode.parentNode; // Get the table row
-    tableRow.parentNode.removeChild(tableRow); // Remove the row from the table
+function deleteRow() {
+    const outputTable = document.getElementById('tableOutput').querySelector('table');
+    const rowCount = outputTable.rows.length;
+
+    if (rowCount > 0) {
+        outputTable.deleteRow(rowCount - 1);
+    }
 }
 
-function deleteColumn(columnIndex) {
+function deleteColumn() {
     const outputTable = document.getElementById('tableOutput').querySelector('table');
-    const rows = outputTable.rows;
+    const colCount = outputTable.rows[0].cells.length;
 
-    for (let i = 0; i < rows.length; i++) {
-        rows[i].deleteCell(columnIndex);
+    for (let i = 0; i < colCount; i++) {
+        outputTable.deleteRow(0);
     }
 }
