@@ -4,53 +4,25 @@
     <meta charset="UTF-8">
     <title>Table Editor</title>
     <style>
-        body {
-            font-family: sans-serif;
-            margin: 20px;
-        }
+        /* ... Previous CSS ... */
 
         #inputContainer { 
             width: 100%; 
-            min-height: 200px; 
+            min-height: 200px; /* Ensure some space */
             border: 1px solid #ccc;
             border-radius: 4px;
             padding: 8px;
             font-size: 0.8rem;  
         }
 
-        button {
-            padding: 8px 16px;
-            border: 1px solid #ddd;
-            border-radius: 4px;
-            font-size: 0.8rem;
-            cursor: pointer;
-            margin-top: 10px;
-        }
-
         #deleteButtons {
             margin-top: 10px;
-        }
-
-        #tableOutput {
-            border: 1px solid black;
-            font-size: 0.8rem;
-        }
-
-        table {
-            border-collapse: collapse;
-            width: 100%;
-        }
-
-        th, td {
-            border: 1px solid black;
-            padding: 8px;
         }
     </style>
 </head>
 <body>
-    <h2>Paste your table below (Try to preserve original spacing):</h2> 
-    <pre id="inputContainer"></pre>
-    <button id="processButton">Process Table</button>
+    <h2>Paste your table below:</h2>
+    <div id="inputContainer" contenteditable="true"></div> <button id="processButton">Process Table</button>
 
     <h2>Edited table:</h2>
     <div id="tableOutput">
