@@ -32,10 +32,19 @@
             padding: 4px;
         }
 
-        .deleteButton {
+        .deleteRowButton {
             background: transparent;
             border: none;
             cursor: pointer;
+        }
+
+        .deleteColumnButton {
+            background: transparent;
+            border: none;
+            cursor: pointer;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
         }
     </style>
 </head>
@@ -46,6 +55,7 @@
 
     <div id="outputContainer">
         <h2>Formatted table:</h2>
+        <button class="deleteColumnButton" onclick="deleteColumn()">Delete Column</button>
         <div id="tableOutput"></div>
     </div>
 
