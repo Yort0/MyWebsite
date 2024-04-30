@@ -4,37 +4,53 @@
     <meta charset="UTF-8">
     <title>Table Editor</title>
     <style>
-        /* ... Previous CSS ... */
+        body {
+            font-family: sans-serif;
+            margin: 20px;
+        }
 
-        #inputContainer { 
-            width: 100%; 
-            min-height: 200px; /* Ensure some space */
+        textarea {
+            width: 100%;
+            height: 200px;
+            padding: 8px;
             border: 1px solid #ccc;
             border-radius: 4px;
-            padding: 8px;
-            font-size: 0.8rem;  
+            font-size: 0.8rem;
         }
 
-        #outputContainer {
-            margin-top: 20px;
-        }
-
-        .deleteButton {
-            background: transparent;
-            border: none;
+        button {
+            padding: 8px 16px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 0.8rem;
             cursor: pointer;
+            margin-top: 10px;
+        }
+
+        #tableOutput {
+            border: 1px solid black;
+            font-size: 0.8rem;
+        }
+
+        table {
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        th, td {
+            border: 1px solid black;
+            padding: 8px;
         }
     </style>
 </head>
 <body>
-    <h2>Paste your table below:</h2>
-    <div id="inputContainer" contenteditable="true"></div>
+    <h2>Paste your table below (tab-separated):</h2>
+    <textarea id="tableInput"></textarea>
+
     <button id="processButton">Process Table</button>
 
-    <div id="outputContainer">
-        <h2>Edited table:</h2>
-        <div id="tableOutput"></div>
-    </div>
+    <h2>Edited table:</h2>
+    <div id="tableOutput"></div>
 
     <script src="script.js"></script> 
 </body>
