@@ -8,8 +8,8 @@
 
         #inputContainer {
             width: 100%;
-            height: 200px; /* Fixed height for scrolling */
-            overflow: auto; /* Enable scrolling */
+            height: 200px;
+            overflow: auto;
             border: 1px solid #ccc;
             border-radius: 4px;
             padding: 8px;
@@ -22,7 +22,7 @@
         }
 
         #tableOutput {
-            overflow-x: auto; /* Enable horizontal scrolling if needed */
+            overflow-x: auto;
         }
 
         #tableOutput table {
@@ -55,13 +55,13 @@
         }
 
         .deleteRowButton {
-            float: left; /* Align buttons to the left */
-            margin-right: 10px; /* Add some space between buttons and table */
+            float: left;
+            margin-right: 10px;
         }
 
         .deleteColumnButton {
-            display: block; /* Display buttons as block elements */
-            margin: 0 auto 10px; /* Center buttons horizontally */
+            display: block;
+            margin: 0 auto 10px;
         }
     </style>
 </head>
@@ -72,9 +72,9 @@
 
     <div id="outputContainer">
         <h2>Formatted table:</h2>
-        <button class="deleteRowButton" onclick="deleteRow()">Delete Row</button>
-        <div id="tableOutput"></div>
         <button class="deleteColumnButton" onclick="deleteColumn()">Delete Column</button>
+        <div id="tableOutput"></div>
+        <button class="deleteRowButton" onclick="deleteRow()">Delete Row</button>
     </div>
 
     <script src="script.js"></script>
