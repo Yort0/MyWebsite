@@ -26,7 +26,11 @@ function formatTable(table) {
         newTableHTML += '<tr>';
         newTableHTML += `<td><button class="deleteRowButton" onclick="deleteRow(this)">Delete Row</button></td>`;
         for (let j = 0; j < colCount; j++) {
-            newTableHTML += `<td>${rows[i].cells[j].innerHTML}</td>`;
+            if (i === 0) {
+                newTableHTML += `<th>${rows[i].cells[j].innerHTML}</th>`;
+            } else {
+                newTableHTML += `<td>${rows[i].cells[j].innerHTML}</td>`;
+            }
         }
         newTableHTML += '</tr>';
     }
