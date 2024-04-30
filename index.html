@@ -4,15 +4,16 @@
     <meta charset="UTF-8">
     <title>Table Editor</title>
     <style>
-        /* ... Previous CSS ... */
+        /* Previous CSS styles */
 
-        #inputContainer { 
-            width: 100%; 
-            min-height: 200px; /* Ensure some space */
+        #inputContainer {
+            width: 100%;
+            min-height: 200px;
             border: 1px solid #ccc;
             border-radius: 4px;
             padding: 8px;
-            font-size: 0.8rem;  
+            font-size: 0.8rem;
+            overflow: auto;
         }
 
         #outputContainer {
@@ -23,6 +24,7 @@
             border: 1px solid black;
             border-collapse: collapse;
             font-size: 0.8rem;
+            margin-bottom: 10px;
         }
 
         #tableOutput table td, #tableOutput table th {
@@ -39,7 +41,7 @@
 </head>
 <body>
     <h2>Paste your table below:</h2>
-    <textarea id="inputContainer"></textarea>
+    <div id="inputContainer" contenteditable="true"></div>
     <button id="formatButton">Format Table</button>
 
     <div id="outputContainer">
@@ -47,6 +49,6 @@
         <div id="tableOutput"></div>
     </div>
 
-    <script src="script.js"></script> 
+    <script src="script.js"></script>
 </body>
 </html>
