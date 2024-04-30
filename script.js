@@ -1,11 +1,31 @@
 const formatButton = document.getElementById('formatButton');
 const inputArea = document.getElementById('inputContainer');
 const outputArea = document.getElementById('tableOutput');
+const deleteRowButton = document.getElementById('deleteRowButton');
+const deleteColumnButton = document.getElementById('deleteColumnButton');
 
 formatButton.addEventListener('click', function() {
     const table = inputArea.innerHTML;
     const formattedTable = formatTable(table);
     outputArea.innerHTML = formattedTable;
+});
+
+deleteRowButton.addEventListener('click', function() {
+    const outputTable = document.getElementById('tableOutput').querySelector('table');
+    const rowCount = outputTable.rows.length;
+
+    if (rowCount > 0) {
+        outputTable.deleteRow(rowCount - 1);
+    }
+});
+
+deleteColumnButton.addEventListener('click', function() {
+    const outputTable = document.getElementById('tableOutput').querySelector('table');
+    const rows = outputTable.rows;
+
+    for (let i = 0; i < rows.length; i++) {
+        rows[i].deleteCell(0); // Always delete the first column
+    }
 });
 
 function formatTable(table) {
@@ -17,39 +37,5 @@ function formatTable(table) {
         return '<p>No table found in input.</p>';
     }
 
-    const rows = tableElement.rows;
-    const rowCount = rows.length;
-    const colCount = rows[0].cells.length;
-
-    let newTableHTML = '<table>';
-    for (let i = 0; i < rowCount; i++) {
-        newTableHTML += '<tr>';
-        for (let j = 0; j < colCount; j++) {
-            if (i === 0) {
-                newTableHTML += `<th>${rows[i].cells[j].innerHTML}<br><button class="deleteColumnButton" onclick="deleteColumn(${j})">Delete Column</button></th>`;
-            } else {
-                newTableHTML += `<td>${rows[i].cells[j].innerHTML}</td>`;
-            }
-        }
-        newTableHTML += '</tr>';
-        if (i !== 0) {
-            newTableHTML += `<tr><td><button class="deleteRowButton" onclick="deleteRow(${i})">Delete Row</button></td></tr>`;
-        }
-    }
-    newTableHTML += '</table>';
-    return newTableHTML;
-}
-
-function deleteRow(rowIndex) {
-    const outputTable = document.getElementById('tableOutput').querySelector('table');
-    outputTable.deleteRow(rowIndex);
-}
-
-function deleteColumn(columnIndex) {
-    const outputTable = document.getElementById('tableOutput').querySelector('table');
-    const rows = outputTable.rows;
-
-    for (let i = 0; i < rows.length; i++) {
-        rows[i].deleteCell(columnIndex);
-    }
+    return tableElement.outerHTML;
 }
