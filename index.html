@@ -15,19 +15,25 @@
             font-size: 0.8rem;  
         }
 
-        #deleteButtons {
-            margin-top: 10px;
+        #outputContainer {
+            margin-top: 20px;
+        }
+
+        .deleteButton {
+            background: transparent;
+            border: none;
+            cursor: pointer;
         }
     </style>
 </head>
 <body>
     <h2>Paste your table below:</h2>
-    <div id="inputContainer" contenteditable="true"></div> <button id="processButton">Process Table</button>
+    <div id="inputContainer" contenteditable="true"></div>
+    <button id="processButton">Process Table</button>
 
-    <h2>Edited table:</h2>
-    <div id="tableOutput">
-        <table></table>  
-        <div id="deleteButtons"></div> 
+    <div id="outputContainer">
+        <h2>Edited table:</h2>
+        <div id="tableOutput"></div>
     </div>
 
     <script src="script.js"></script> 
