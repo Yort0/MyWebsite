@@ -37,7 +37,7 @@
             padding: 4px;
         }
 
-        .deleteColumnButton {
+        .deleteButton {
             background-color: #ff5757;
             color: white;
             border: none;
@@ -46,28 +46,9 @@
             font-size: 0.8rem;
             cursor: pointer;
             margin-bottom: 10px;
-            display: inline-block;
-            margin-right: 10px;
         }
 
-        .deleteColumnButton:hover {
-            background-color: #ff3333;
-        }
-
-        .deleteRowButton {
-            background-color: #ff5757;
-            color: white;
-            border: none;
-            border-radius: 4px;
-            padding: 8px 16px;
-            font-size: 0.8rem;
-            cursor: pointer;
-            margin-bottom: 10px;
-            display: block;
-            margin-bottom: 10px;
-        }
-
-        .deleteRowButton:hover {
+        .deleteButton:hover {
             background-color: #ff3333;
         }
     </style>
@@ -80,7 +61,8 @@
     <div id="outputContainer">
         <h2>Formatted table:</h2>
         <div id="tableOutput"></div>
-        <button class="deleteRowButton" onclick="deleteRow()">Delete Row</button>
+        <button class="deleteButton" id="deleteRowButton">Delete Row</button>
+        <button class="deleteButton" id="deleteColumnButton">Delete Column</button>
     </div>
 
     <script src="script.js"></script>
