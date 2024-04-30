@@ -37,8 +37,24 @@
             padding: 4px;
         }
 
-        .deleteRowButton,
         .deleteColumnButton {
+            background-color: #ff5757;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            padding: 8px 16px;
+            font-size: 0.8rem;
+            cursor: pointer;
+            margin-bottom: 10px;
+            display: block;
+            margin: 0 auto;
+        }
+
+        .deleteColumnButton:hover {
+            background-color: #ff3333;
+        }
+
+        .deleteRowButton {
             background-color: #ff5757;
             color: white;
             border: none;
@@ -49,18 +65,8 @@
             margin-bottom: 10px;
         }
 
-        .deleteRowButton:hover,
-        .deleteColumnButton:hover {
+        .deleteRowButton:hover {
             background-color: #ff3333;
-        }
-
-        .deleteRowButton {
-            margin-right: 10px;
-        }
-
-        .deleteColumnButton {
-            display: block;
-            margin: 0 auto 10px;
         }
     </style>
 </head>
@@ -71,6 +77,7 @@
 
     <div id="outputContainer">
         <h2>Formatted table:</h2>
+        <button class="deleteRowButton" onclick="deleteRow()">Delete Row</button>
         <div id="tableOutput"></div>
     </div>
 
