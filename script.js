@@ -1,22 +1,13 @@
 const formatButton = document.getElementById('formatButton');
 const inputArea = document.getElementById('inputContainer');
 const outputArea = document.getElementById('tableOutput');
-const deleteRowButton = document.getElementById('deleteRowButton');
+const deleteRowButtonsContainer = document.getElementById('deleteRowButtons');
 const deleteColumnButton = document.getElementById('deleteColumnButton');
 
 formatButton.addEventListener('click', function() {
     const table = inputArea.innerHTML;
     const formattedTable = formatTable(table);
     outputArea.innerHTML = formattedTable;
-});
-
-deleteRowButton.addEventListener('click', function() {
-    const outputTable = document.getElementById('tableOutput').querySelector('table');
-    const rowCount = outputTable.rows.length;
-
-    if (rowCount > 0) {
-        outputTable.deleteRow(rowCount - 1);
-    }
 });
 
 deleteColumnButton.addEventListener('click', function() {
@@ -37,5 +28,23 @@ function formatTable(table) {
         return '<p>No table found in input.</p>';
     }
 
+    const rowCount = tableElement.rows.length;
+    const deleteRowButtonsHTML = generateDeleteRowButtonsHTML(rowCount);
+
+    deleteRowButtonsContainer.innerHTML = deleteRowButtonsHTML;
+
     return tableElement.outerHTML;
+}
+
+function generateDeleteRowButtonsHTML(rowCount) {
+    let buttonsHTML = '';
+    for (let i = 1; i < rowCount; i++) {
+        buttonsHTML += `<button class="deleteButton" onclick="deleteRow(${i})">Delete Row ${i}</button>`;
+    }
+    return buttonsHTML;
+}
+
+function deleteRow(rowIndex) {
+    const outputTable = document.getElementById('tableOutput').querySelector('table');
+    outputTable.deleteRow(rowIndex);
 }
