@@ -7,6 +7,8 @@
     <style>
         body {
             font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
         }
         #container {
             max-width: 800px;
@@ -15,11 +17,11 @@
         }
         #inputTable {
             width: 100%;
-            min-height: 200px;
+            max-height: 400px; /* Limit the height of the input area */
+            overflow-y: auto; /* Add vertical scroll if content exceeds the height */
             border: 1px solid #ddd;
             padding: 8px;
             margin-bottom: 20px;
-            overflow: auto;
         }
         table {
             border-collapse: collapse;
@@ -49,6 +51,9 @@
         }
         .delete-button:hover {
             background-color: #d32f2f;
+        }
+        #outputTable {
+            width: 100%; /* Make the output area span the full width of the page */
         }
     </style>
 </head>
