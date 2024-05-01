@@ -4,63 +4,7 @@
     <meta charset="UTF-8">
     <title>Table Editor</title>
     <style>
-        /* Previous CSS styles */
-
-        #inputContainer {
-            width: 100%;
-            height: 200px;
-            overflow: auto;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-            padding: 8px;
-            font-size: 0.8rem;
-            margin-bottom: 20px;
-        }
-
-        #outputContainer {
-            margin-top: 20px;
-        }
-
-        #tableOutput {
-            overflow-x: auto;
-        }
-
-        #tableOutput table {
-            border: 1px solid black;
-            border-collapse: collapse;
-            font-size: 0.8rem;
-            margin-bottom: 10px;
-            position: relative;
-        }
-
-        #tableOutput table td, #tableOutput table th {
-            border: 1px solid black;
-            padding: 4px;
-        }
-
-        .deleteButtonContainer {
-            position: relative;
-            display: inline-block;
-        }
-
-        .deleteButton {
-            background-color: #ff5757;
-            color: white;
-            border: none;
-            border-radius: 4px;
-            padding: 8px 16px;
-            font-size: 0.8rem;
-            cursor: pointer;
-            margin-bottom: 10px;
-            display: block;
-            position: absolute;
-            right: 100%;
-            margin-right: 10px;
-        }
-
-        .deleteButton:hover {
-            background-color: #ff3333;
-        }
+        /* Your CSS styles */
     </style>
 </head>
 <body>
@@ -71,8 +15,6 @@
     <div id="outputContainer">
         <h2>Formatted table:</h2>
         <div id="tableOutput"></div>
-        <div id="deleteRowButtons"></div>
-        <button class="deleteButton" id="deleteColumnButton">Delete Column</button>
     </div>
 
     <script src="script.js"></script>
