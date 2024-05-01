@@ -2,36 +2,114 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Table Editor</title>
     <style>
-        /* Your CSS styles */
-        .deleteButton {
-            background-color: #ff5757;
+        body {
+            font-family: Arial, sans-serif;
+        }
+        #container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        textarea {
+            width: 100%;
+            min-height: 200px;
+            margin-bottom: 20px;
+        }
+        table {
+            border-collapse: collapse;
+            width: 100%;
+            margin-bottom: 20px;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+        .delete-button {
+            background-color: #f44336;
             color: white;
             border: none;
-            border-radius: 4px;
-            padding: 6px 12px;
-            font-size: 0.8rem;
+            padding: 8px 16px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 14px;
+            margin: 4px 2px;
             cursor: pointer;
-            margin-bottom: 5px;
+            border-radius: 4px;
         }
-
-        .deleteButtonContainer {
-            float: left;
-            margin-right: 10px;
+        .delete-button:hover {
+            background-color: #d32f2f;
         }
     </style>
 </head>
 <body>
-    <h2>Paste your table below:</h2>
-    <div id="inputContainer" contenteditable="true"></div>
-    <button id="formatButton">Format Table</button>
+    <div id="container">
+        <h2>Paste your table below:</h2>
+        <textarea id="inputTable" placeholder="Paste your table here"></textarea>
+        <button onclick="processTable()">Process Table</button>
 
-    <div id="outputContainer">
-        <h2>Formatted table:</h2>
-        <div id="tableOutput"></div>
+        <h2>Modified Table:</h2>
+        <div id="outputTable"></div>
     </div>
 
-    <script src="script.js"></script>
+    <script>
+        function processTable() {
+            const inputTable = document.getElementById('inputTable').value.trim();
+            if (inputTable === '') {
+                alert('Please paste a table first.');
+                return;
+            }
+
+            // Split the input table into rows
+            const rows = inputTable.split('\n');
+            
+            // Create a table element
+            const table = document.createElement('table');
+
+            // Process each row
+            rows.forEach(row => {
+                // Create a table row
+                const tr = document.createElement('tr');
+
+                // Split the row into cells
+                const cells = row.split('\t');
+
+                // Process each cell
+                cells.forEach(cell => {
+                    // Create a table cell
+                    const td = document.createElement('td');
+                    td.textContent = cell;
+                    tr.appendChild(td);
+                });
+
+                // Create a delete button for each row
+                const deleteButton = document.createElement('button');
+                deleteButton.textContent = 'Delete Row';
+                deleteButton.className = 'delete-button';
+                deleteButton.onclick = function() {
+                    tr.remove(); // Remove the row when the button is clicked
+                };
+
+                // Append the delete button to the row
+                const td = document.createElement('td');
+                td.appendChild(deleteButton);
+                tr.appendChild(td);
+
+                // Append the row to the table
+                table.appendChild(tr);
+            });
+
+            // Display the table in the output section
+            document.getElementById('outputTable').innerHTML = '';
+            document.getElementById('outputTable').appendChild(table);
+        }
+    </script>
 </body>
 </html>
