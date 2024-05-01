@@ -57,6 +57,7 @@
             border: 1px solid #ddd;
             padding: 8px;
             box-sizing: border-box; /* Include padding in width calculation */
+            overflow: auto; /* Add horizontal scroll if content exceeds the width */
         }
         #outputTable {
             width: 100%; /* Make the output table span the full width of its container */
@@ -70,7 +71,7 @@
         <button onclick="processTable()">Process Table</button>
 
         <h2>Modified Table:</h2>
-        <div id="outputTableContainer">
+        <div id="outputTableContainer" contenteditable="true">
             <div id="outputTable"></div>
         </div>
     </div>
