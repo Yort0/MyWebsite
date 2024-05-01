@@ -13,10 +13,13 @@
             margin: 0 auto;
             padding: 20px;
         }
-        textarea {
+        #inputTable {
             width: 100%;
             min-height: 200px;
+            border: 1px solid #ddd;
+            padding: 8px;
             margin-bottom: 20px;
+            overflow: auto;
         }
         table {
             border-collapse: collapse;
@@ -52,7 +55,7 @@
 <body>
     <div id="container">
         <h2>Paste your table below:</h2>
-        <textarea id="inputTable" placeholder="Paste your table here"></textarea>
+        <div id="inputTable" contenteditable="true" placeholder="Paste your table here"></div>
         <button onclick="processTable()">Process Table</button>
 
         <h2>Modified Table:</h2>
@@ -61,54 +64,44 @@
 
     <script>
         function processTable() {
-            const inputTable = document.getElementById('inputTable').value.trim();
+            const inputTable = document.getElementById('inputTable').innerHTML.trim();
             if (inputTable === '') {
                 alert('Please paste a table first.');
                 return;
             }
 
-            // Split the input table into rows
-            const rows = inputTable.split('\n');
-            
-            // Create a table element
-            const table = document.createElement('table');
+            // Create a temporary div to hold the input table
+            const tempDiv = document.createElement('div');
+            tempDiv.innerHTML = inputTable;
 
-            // Process each row
+            // Extract the table element from the temporary div
+            const tableElement = tempDiv.querySelector('table');
+
+            // If no table is found, show an error message
+            if (!tableElement) {
+                alert('No table found in input.');
+                return;
+            }
+
+            // Create a copy of the table element to prevent modifying the original one
+            const tableCopy = tableElement.cloneNode(true);
+
+            // Add delete buttons to each row
+            const rows = tableCopy.querySelectorAll('tr');
             rows.forEach(row => {
-                // Create a table row
-                const tr = document.createElement('tr');
-
-                // Split the row into cells
-                const cells = row.split('\t');
-
-                // Process each cell
-                cells.forEach(cell => {
-                    // Create a table cell
-                    const td = document.createElement('td');
-                    td.textContent = cell;
-                    tr.appendChild(td);
-                });
-
-                // Create a delete button for each row
                 const deleteButton = document.createElement('button');
                 deleteButton.textContent = 'Delete Row';
                 deleteButton.className = 'delete-button';
                 deleteButton.onclick = function() {
-                    tr.remove(); // Remove the row when the button is clicked
+                    row.remove(); // Remove the row when the button is clicked
                 };
-
-                // Append the delete button to the row
-                const td = document.createElement('td');
-                td.appendChild(deleteButton);
-                tr.appendChild(td);
-
-                // Append the row to the table
-                table.appendChild(tr);
+                const lastCell = row.insertCell();
+                lastCell.appendChild(deleteButton);
             });
 
-            // Display the table in the output section
+            // Display the modified table in the output section
             document.getElementById('outputTable').innerHTML = '';
-            document.getElementById('outputTable').appendChild(table);
+            document.getElementById('outputTable').appendChild(tableCopy);
         }
     </script>
 </body>
