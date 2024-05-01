@@ -26,7 +26,7 @@ function formatTable(table) {
 function generateDeleteRowButtonsHTML(rowCount) {
     let buttonsHTML = '';
     for (let i = 1; i < rowCount; i++) {
-        buttonsHTML += `<button class="deleteButton" onclick="deleteRow(${i})">Delete Row ${i}</button>`;
+        buttonsHTML += `<div class="deleteButtonContainer"><button class="deleteButton" onclick="deleteRow(${i})">Delete Row ${i}</button></div>`;
     }
     return buttonsHTML;
 }
