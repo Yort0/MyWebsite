@@ -5,12 +5,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Table Editor</title>
     <style>
-        /* CSS styles here */
+        /* Your CSS styles here */
     </style>
 </head>
 <body>
     <div id="container">
-        <!-- HTML content here -->
+        <h2>Paste your table below:</h2>
+        <div id="inputTable" contenteditable="true" placeholder="Paste your table here"></div>
+        <button onclick="processTable()">Process Table</button>
+
+        <h2>Modified Table:</h2>
+        <div id="outputTableContainer">
+            <table id="outputTable"></table>
+        </div>
+        <textarea id="outputTextarea" readonly></textarea>
     </div>
 
     <script src="script.js"></script>
