@@ -16,8 +16,9 @@ function processAndDisplayTable(tableText) {
         newTableHTML += '<tr>';
         const cells = rows[i].split('\t');
         cells.forEach(cell => {
-            newTableHTML += `<td>${cell} <button onclick="deleteRow(this)">&#10006;</button></td>`;  // Add delete button
+            newTableHTML += `<td>${cell}</td>`;  // Only add cell content
         });
+        newTableHTML += `<td><button onclick="deleteRow(this.parentElement)">Delete</button></td>`;  // Add delete button on the side
         newTableHTML += '</tr>';
     }
 
@@ -25,7 +26,6 @@ function processAndDisplayTable(tableText) {
     return newTableHTML;
 }
 
-function deleteRow(deleteButton) {
-    const tableRow = deleteButton.parentElement.parentElement; // Get the table row
-    tableRow.parentNode.removeChild(tableRow); // Remove the row from the table
+function deleteRow(tableRow) {
+    tableRow.parentElement.removeChild(tableRow); // Remove the row from the table
 }
