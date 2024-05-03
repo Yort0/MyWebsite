@@ -27,7 +27,8 @@ function formatTable(table) {
        newTableHTML += `<td><button class="deleteRowButton" onclick="deleteRow(this)">Delete Row</button></td>`;
        for (let j = 0; j < colCount; j++) {
            if (i === 0) {
-               newTableHTML += `<th>${rows[i].cells[j].innerHTML}<button class="deleteColumnButton" onclick="deleteColumn(${j})">Delete Column</button></th>`;
+               // Omit the "Delete Column" buttons here
+               newTableHTML += `<th>${rows[i].cells[j].innerHTML}</th>`;
            } else {
                newTableHTML += `<td>${rows[i].cells[j].innerHTML}</td>`;
            }
