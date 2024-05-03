@@ -5,46 +5,27 @@
    <title>Table Editor</title>
    <style>
        /* Previous CSS styles */
-
+       
        #inputContainer {
            width: 100%;
-           height: 200px;
-           max-height: 400px;
+           height: 200px; /* Limiting the height */
+           max-height: 400px; /* Optional: Set a maximum height */
            border: 1px solid #ccc;
            border-radius: 4px;
            padding: 8px;
            font-size: 0.8rem;
-           overflow: auto;
+           overflow: auto; /* Enable scrolling */
        }
-
-       #outputContainer {
-           margin-top: 20px;
-       }
-
-       #tableOutput table {
-           border: 1px solid black;
-           border-collapse: collapse;
+       
+       #outputTextarea {
+           width: 100%;
+           height: 200px; /* Adjust height as needed */
+           border: 1px solid #ccc;
+           border-radius: 4px;
+           padding: 8px;
            font-size: 0.8rem;
-           margin-bottom: 10px;
-       }
-
-       #tableOutput table td, #tableOutput table th {
-           border: 1px solid black;
-           padding: 4px;
-       }
-
-       .deleteRowButton {
-           background: transparent;
-           border: none;
-           cursor: pointer;
-       }
-
-       .deleteColumnButton {
-           background: transparent;
-           border: none;
-           cursor: pointer;
-           display: block;
-           margin: 0 auto;
+           margin-top: 20px;
+           resize: vertical; /* Allow vertical resizing */
        }
    </style>
 </head>
@@ -55,7 +36,7 @@
 
    <div id="outputContainer">
        <h2>Formatted table:</h2>
-       <div id="tableOutput"></div>
+       <textarea id="outputTextarea" readonly></textarea> <!-- Textarea for formatted table output -->
    </div>
 
    <script src="script.js"></script>
