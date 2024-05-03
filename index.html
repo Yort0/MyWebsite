@@ -5,130 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Table Editor</title>
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            width: 100%; /* Set the body width to 100% */
-        }
-        #container {
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 20px;
-        }
-        #inputTable {
-            width: 100%;
-            max-height: 400px; /* Limit the height of the input area */
-            overflow-y: auto; /* Add vertical scroll if content exceeds the height */
-            border: 1px solid #ddd;
-            padding: 8px;
-            margin-bottom: 20px;
-        }
-        table {
-            border-collapse: collapse;
-            width: auto; /* Adjusted to fit content */
-            margin-bottom: 20px;
-            table-layout: auto; /* Adjusted to fit content */
-        }
-        th, td {
-            border: 1px solid #ddd;
-            padding: 8px;
-            text-align: left;
-        }
-        th {
-            background-color: #f2f2f2;
-        }
-        .delete-button {
-            background-color: #f44336;
-            color: white;
-            border: none;
-            padding: 8px 16px;
-            text-align: center;
-            text-decoration: none;
-            display: inline-block;
-            font-size: 14px;
-            margin: 4px 2px;
-            cursor: pointer;
-            border-radius: 4px;
-            user-select: none; /* Prevent highlighting */
-        }
-        .delete-button:hover {
-            background-color: #d32f2f;
-        }
-        #outputTableContainer {
-            width: calc(100% - 40px); /* Adjusted to fit the width of the page */
-            border: 1px solid #ddd;
-            padding: 8px;
-            box-sizing: border-box; /* Include padding in width calculation */
-            overflow-x: auto; /* Add horizontal scroll if content exceeds the width */
-            overflow-y: hidden; /* Hide vertical scrollbar */
-        }
-        #outputTable {
-            width: auto; /* Adjusted to fit content */
-            table-layout: auto; /* Adjusted to fit content */
-        }
+        /* CSS styles here */
     </style>
 </head>
 <body>
     <div id="container">
-        <h2>Paste your table below:</h2>
-        <div id="inputTable" contenteditable="true" placeholder="Paste your table here"></div>
-        <button onclick="processTable()">Process Table</button>
-
-        <h2>Modified Table:</h2>
-        <div id="outputTableContainer">
-            <div id="outputTable"></div>
-        </div>
+        <!-- HTML content here -->
     </div>
 
-    <script>
-        // Prevent the default behavior of Ctrl+A (selecting the entire page)
-        document.addEventListener('keydown', function(event) {
-            if (event.key === 'a' && (event.ctrlKey || event.metaKey)) {
-                event.preventDefault();
-            }
-        });
-
-        function processTable() {
-            const inputTable = document.getElementById('inputTable').innerHTML.trim();
-            if (inputTable === '') {
-                alert('Please paste a table first.');
-                return;
-            }
-
-            // Create a temporary div to hold the input table
-            const tempDiv = document.createElement('div');
-            tempDiv.innerHTML = inputTable;
-
-            // Extract the table element from the temporary div
-            const tableElement = tempDiv.querySelector('table');
-
-            // If no table is found, show an error message
-            if (!tableElement) {
-                alert('No table found in input.');
-                return;
-            }
-
-            // Create a copy of the table element to prevent modifying the original one
-            const tableCopy = tableElement.cloneNode(true);
-
-            // Add delete buttons to each row
-            const rows = tableCopy.querySelectorAll('tr');
-            rows.forEach(row => {
-                const deleteButton = document.createElement('button');
-                deleteButton.textContent = 'Delete Row';
-                deleteButton.className = 'delete-button';
-                deleteButton.onclick = function() {
-                    row.remove(); // Remove the row when the button is clicked
-                };
-                const lastCell = row.insertCell();
-                lastCell.appendChild(deleteButton);
-            });
-
-            // Display the modified table in the output section
-            document.getElementById('outputTable').innerHTML = '';
-            document.getElementById('outputTable').appendChild(tableCopy);
-        }
-    </script>
+    <script src="script.js"></script>
 </body>
 </html>
