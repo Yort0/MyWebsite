@@ -1,50 +1,39 @@
-// Prevent the default behavior of Ctrl+A (selecting the entire page)
-document.addEventListener('keydown', function(event) {
-    if (event.key === 'a' && (event.ctrlKey || event.metaKey)) {
-        event.preventDefault();
-    }
+const processButton = document.getElementById('processButton');
+const inputArea = document.getElementById('tableInput');
+const outputArea = document.getElementById('tableOutput');
+
+processButton.addEventListener('click', function() {
+  const tableText = inputArea.value;
+  const processedTable = processAndDisplayTable(tableText);
+  outputArea.innerHTML = processedTable;
 });
 
-function processTable() {
-    const inputTable = document.getElementById('inputTable').innerHTML.trim();
-    if (inputTable === '') {
-        alert('Please paste a table first.');
-        return;
-    }
+function processAndDisplayTable(tableText) {
+  // Split the table text into rows based on new line characters
+  const rows = tableText.split('\n');
 
-    const tempDiv = document.createElement('div');
-    tempDiv.innerHTML = inputTable;
+  // Create the HTML for the table structure
+  let newTableHTML = '<table style="border: 1px solid black; font-size: 0.8rem;">';
+  newTableHTML += '<thead><tr>';  // Add header row
 
-    const tableElement = tempDiv.querySelector('table');
+  // Extract header cells from the first row (assuming consistent structure)
+  const headerCells = rows[0].split(/\s{2,}/);  // Split by two or more spaces
+  headerCells.forEach(cell => {
+    newTableHTML += `<th>${cell}</th>`;
+  });
 
-    if (!tableElement) {
-        alert('No table found in input.');
-        return;
-    }
+  newTableHTML += '</tr></thead>';  // Close header row
 
-    const tableCopy = tableElement.cloneNode(true);
-
-    const rows = tableCopy.querySelectorAll('tr');
-    rows.forEach(row => {
-        const deleteButton = document.createElement('button');
-        deleteButton.textContent = 'Delete Row';
-        deleteButton.className = 'delete-button';
-        deleteButton.onclick = function() {
-            row.remove();
-            updateTextarea();
-        };
-        const lastCell = row.insertCell();
-        lastCell.appendChild(deleteButton);
+  // Process table body rows (excluding the header row)
+  for (let i = 1; i < rows.length; i++) {
+    const cells = rows[i].split(/\s{2,}/);
+    newTableHTML += '<tr>';
+    cells.forEach(cell => {
+      newTableHTML += `<td>${cell}</td>`;
     });
+    newTableHTML += '</tr>';
+  }
 
-    document.getElementById('outputTable').innerHTML = '';
-    document.getElementById('outputTable').appendChild(tableCopy);
-
-    updateTextarea();
-}
-
-function updateTextarea() {
-    const outputTable = document.getElementById('outputTable');
-    const outputTextarea = document.getElementById('outputTextarea');
-    outputTextarea.value = outputTable.outerHTML;
+  newTableHTML += '</table>';
+  return newTableHTML;
 }
