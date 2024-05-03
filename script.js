@@ -9,5 +9,63 @@ processButton.addEventListener('click', function() {
 });
 
 function processAndDisplayTable(tableText) {
-  // TODO: Table parsing, HTML generation, and delete row logic 
+  const rows = tableText.split('\n');
+
+  // Find the header row (assume the row with the most cells)
+  let headerRow = rows[0];
+  let maxCells = headerRow.split(/\s+/).length;  
+
+  for (let i = 1; i < rows.length; i++) {
+    let numCells = rows[i].split(/\s+/).length;
+    if (numCells > maxCells) {
+      headerRow = rows[i];
+      maxCells = numCells;
+    }
+  }
+
+  // Create the HTML for the table structure
+  let newTableHTML = '<table style="border: 1px solid black; font-size: 0.8rem;">';
+  newTableHTML += '<thead><tr>'; 
+
+  // Process header cells
+  const headerCells = removeBasicHTMLTags(headerRow).split(/\s+/);  
+  headerCells.forEach(cell => {
+    newTableHTML += `<th>${cell}</th>`;
+  });
+
+  newTableHTML += '</tr></thead>';
+  newTableHTML += '<tbody>'; 
+
+  // Process data rows
+  for (let i = 0; i < rows.length; i++) {
+    if (rows[i] !== headerRow) { // Skip the header row
+      newTableHTML += '<tr>';
+      const cells = removeBasicHTMLTags(rows[i]).split(/\s+/);
+      cells.forEach(cell => {
+        newTableHTML += `<td>${cell} <button class="delete-button">&#10006;</button></td>`; 
+      });
+      newTableHTML += '</tr>';
+    }
+  }
+
+  newTableHTML += '</tbody></table>';
+
+  // Add event listeners for delete buttons (after the table is rendered)
+  addDeleteButtonListeners();
+
+  return newTableHTML;
+}
+
+function removeBasicHTMLTags(text) {
+  return text.replace(/<[^>]+>/g, ''); 
+}
+
+function addDeleteButtonListeners() {
+  const deleteButtons = document.querySelectorAll('.delete-button');
+  deleteButtons.forEach(button => {
+    button.addEventListener('click', function() {
+      const row = button.parentElement.parentElement; // Get the table row
+      row.parentNode.removeChild(row); // Remove the row
+    });
+  });
 }
