@@ -1,11 +1,12 @@
 const formatButton = document.getElementById('formatButton');
 const inputArea = document.getElementById('inputContainer');
 const outputArea = document.getElementById('tableOutput');
+const tableBody = document.getElementById('tableBody');  
 
 formatButton.addEventListener('click', function() {
   const table = inputArea.innerHTML;
   const formattedTable = formatTable(table);
-  outputArea.innerHTML = formattedTable;
+  tableBody.innerHTML = formattedTable; 
 });
 
 function formatTable(table) {
@@ -21,18 +22,19 @@ function formatTable(table) {
   const rowCount = rows.length;
   const colCount = rows[0].cells.length;
 
-  let newTableHTML = '<table>';
-  const deleteButtons = []; 
+  let newTableHTML = ''; 
 
   for (let i = 0; i < rowCount; i++) {
     newTableHTML += '<tr>';
 
-    // Create and store delete button:
+    // Create delete button and add to table cell:
     const deleteButton = document.createElement('button');
     deleteButton.textContent = 'Delete Row';
     deleteButton.classList.add('deleteRowButton');
     deleteButton.onclick = function() { deleteRow(this) }; 
-    deleteButtons.push(deleteButton);
+    const buttonCell = document.createElement('td');
+    buttonCell.appendChild(deleteButton);
+    newTableHTML += buttonCell.outerHTML; 
 
     for (let j = 0; j < colCount; j++) {
       if (i === 0) {
@@ -43,12 +45,6 @@ function formatTable(table) {
     }
     newTableHTML += '</tr>';
   }
-  newTableHTML += '</table>';
-
-  // Add buttons to container:
-  const buttonsContainer = document.getElementById('deleteButtonsContainer');
-  buttonsContainer.innerHTML = ''; 
-  deleteButtons.forEach(button => buttonsContainer.appendChild(button));
 
   return newTableHTML;
 }
@@ -59,8 +55,7 @@ function deleteRow(deleteButton) {
 }
 
 function deleteColumn(columnIndex) {
-  const outputTable = document.getElementById('tableOutput').querySelector('table');
-  const rows = outputTable.rows;
+  const rows = tableBody.rows; 
 
   for (let i = 0; i < rows.length; i++) {
     rows[i].deleteCell(columnIndex);
