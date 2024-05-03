@@ -31,7 +31,12 @@ function formatTable(table) {
     const deleteButton = document.createElement('button');
     deleteButton.textContent = 'Delete Row';
     deleteButton.classList.add('deleteRowButton');
-    deleteButton.onclick = function() { deleteRow(this) }; 
+
+    // Add event listener to the button
+    deleteButton.addEventListener('click', function() {
+        deleteRow(this); 
+    });
+
     const buttonCell = document.createElement('td');
     buttonCell.appendChild(deleteButton);
     newTableHTML += buttonCell.outerHTML; 
@@ -50,8 +55,8 @@ function formatTable(table) {
 }
 
 function deleteRow(deleteButton) {
-  const tableRow = deleteButton.parentNode.parentNode; 
-  tableRow.parentNode.removeChild(tableRow); 
+    const tableRow = deleteButton.parentNode.parentNode; 
+    tableRow.parentNode.removeChild(tableRow); 
 }
 
 function deleteColumn(columnIndex) {
