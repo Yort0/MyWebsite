@@ -15,10 +15,10 @@ function processAndDisplayTable(tableText) {
     for (let i = 0; i < rows.length; i++) {
         newTableHTML += '<tr>';
         const cells = rows[i].split('\t');
+        newTableHTML += `<td><button class="delete-row-button" onclick="deleteRow(this.parentElement.parentElement)">Delete</button></td>`;  // Add delete button at the beginning of each row
         cells.forEach(cell => {
             newTableHTML += `<td>${cell}</td>`;  // Only add cell content
         });
-        newTableHTML += `<td><button class="delete-row-button" onclick="deleteRow(this.parentElement.parentElement)">Delete</button></td>`;  // Add delete button on the side
         newTableHTML += '</tr>';
     }
 
