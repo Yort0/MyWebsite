@@ -8,6 +8,18 @@ formatButton.addEventListener('click', function() {
    outputArea.innerHTML = formattedTable;
 });
 
+// New code for selecting formatted table with Ctrl+A
+outputArea.addEventListener('keydown', function(event) {
+    // Check if Ctrl key (Cmd key on macOS) is pressed and the key pressed is 'a' (or 'A')
+    if ((event.ctrlKey || event.metaKey) && event.key === 'a') {
+        // Prevent the default action of the browser (which is to select all text)
+        event.preventDefault();
+        
+        // Select the contents of the output container
+        selectElementContents(outputArea);
+    }
+});
+
 function formatTable(table) {
    const tempDiv = document.createElement('div');
    tempDiv.innerHTML = table;
@@ -51,4 +63,13 @@ function deleteColumn(columnIndex) {
    for (let i = 0; i < rows.length; i++) {
        rows[i].deleteCell(columnIndex);
    }
+}
+
+// Function to select the contents of an element
+function selectElementContents(element) {
+    const range = document.createRange();
+    range.selectNodeContents(element);
+    const selection = window.getSelection();
+    selection.removeAllRanges();
+    selection.addRange(range);
 }
