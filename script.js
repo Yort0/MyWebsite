@@ -8,14 +8,14 @@ formatButton.addEventListener('click', function() {
    outputArea.innerHTML = formattedTable;
 });
 
-// Add event listener for keydown event on the output area
+// New code for selecting formatted table with Ctrl+A
 outputArea.addEventListener('keydown', function(event) {
     // Check if Ctrl key (Cmd key on macOS) is pressed and the key pressed is 'a' (or 'A')
     if ((event.ctrlKey || event.metaKey) && event.key === 'a') {
         // Prevent the default action of the browser (which is to select all text)
         event.preventDefault();
         
-        // Select the contents of the output area
+        // Select the contents of the output container
         selectElementContents(outputArea);
     }
 });
