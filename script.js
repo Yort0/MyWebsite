@@ -1,12 +1,12 @@
 const formatButton = document.getElementById('formatButton');
 const inputArea = document.getElementById('inputContainer');
-const outputArea = document.getElementById('tableOutput');
-const tableBody = document.getElementById('tableBody');  
+const outputArea = document.getElementById('tableOutput'); 
+const outputTable = outputArea.querySelector('table'); // Get the output table
 
 formatButton.addEventListener('click', function() {
   const table = inputArea.innerHTML;
   const formattedTable = formatTable(table);
-  tableBody.innerHTML = formattedTable; 
+  outputTable.innerHTML = formattedTable; // Update existing table
 });
 
 function formatTable(table) {
@@ -27,12 +27,10 @@ function formatTable(table) {
   for (let i = 0; i < rowCount; i++) {
     newTableHTML += '<tr>';
 
-    // Create delete button and add to table cell:
+    // Create delete button
     const deleteButton = document.createElement('button');
     deleteButton.textContent = 'Delete Row';
     deleteButton.classList.add('deleteRowButton');
-
-    // Add event listener to the button
     deleteButton.addEventListener('click', function() {
         deleteRow(this); 
     });
@@ -60,7 +58,7 @@ function deleteRow(deleteButton) {
 }
 
 function deleteColumn(columnIndex) {
-  const rows = tableBody.rows; 
+  const rows = outputTable.rows; 
 
   for (let i = 0; i < rows.length; i++) {
     rows[i].deleteCell(columnIndex);
