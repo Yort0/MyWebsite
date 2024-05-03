@@ -4,67 +4,59 @@
     <meta charset="UTF-8">
     <title>Table Editor</title>
     <style>
-        body {
-            font-family: sans-serif;
-            margin: 20px;
-        }
+        /* Previous CSS styles */
 
-        textarea {
+        #inputContainer {
             width: 100%;
-            height: 200px;
-            padding: 8px;
+            min-height: 200px;
             border: 1px solid #ccc;
             border-radius: 4px;
-            font-size: 0.8rem;
-        }
-
-        button {
-            padding: 8px 16px;
-            border: 1px solid #ddd;
-            border-radius: 4px;
-            font-size: 0.8rem;
-            cursor: pointer;
-            margin-top: 10px;
-        }
-
-        #tableOutput {
-            border: 1px solid black;
-            font-size: 0.8rem;
-            margin-top: 10px;
-        }
-
-        table {
-            border-collapse: collapse;
-            width: 100%;
-        }
-
-        th, td {
-            border: 1px solid black;
             padding: 8px;
+            font-size: 0.8rem;
+            overflow: auto;
         }
 
-        .delete-row-button {
-            background-color: #f44336;
-            color: white;
+        #outputContainer {
+            margin-top: 20px;
+        }
+
+        #tableOutput table {
+            border: 1px solid black;
+            border-collapse: collapse;
+            font-size: 0.8rem;
+            margin-bottom: 10px;
+        }
+
+        #tableOutput table td, #tableOutput table th {
+            border: 1px solid black;
+            padding: 4px;
+        }
+
+        .deleteRowButton {
+            background: transparent;
             border: none;
-            border-radius: 4px;
             cursor: pointer;
         }
 
-        .delete-row-button:hover {
-            background-color: #d32f2f;
+        .deleteColumnButton {
+            background: transparent;
+            border: none;
+            cursor: pointer;
+            display: block;
+            margin: 0 auto;
         }
     </style>
 </head>
 <body>
-    <h2>Paste your table below (tab-separated):</h2>
-    <textarea id="tableInput"></textarea>
+    <h2>Paste your table below:</h2>
+    <div id="inputContainer" contenteditable="true"></div>
+    <button id="formatButton">Format Table</button>
 
-    <button id="processButton">Process Table</button>
+    <div id="outputContainer">
+        <h2>Formatted table:</h2>
+        <div id="tableOutput"></div>
+    </div>
 
-    <h2>Edited table:</h2>
-    <div id="tableOutput"></div>
-
-    <script src="script.js"></script> 
+    <script src="script.js"></script>
 </body>
 </html>
