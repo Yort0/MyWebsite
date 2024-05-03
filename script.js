@@ -5,7 +5,7 @@ const outputArea = document.getElementById('tableOutput');
 processButton.addEventListener('click', function() {
     const rawTable = inputArea.value;
     const processedTable = processAndDisplayTable(rawTable);
-    outputArea.innerHTML = processedTable;
+    outputArea.innerHTML = `<table><tr><td>${processedTable}</td></tr></table>`; // Wrap the processed table in another table
 });
 
 function processAndDisplayTable(tableText) {
