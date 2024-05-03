@@ -1,64 +1,62 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Table Editor</title>
-  <style>
-    /* Previous CSS styles */
+   <meta charset="UTF-8">
+   <title>Table Editor</title>
+   <style>
+       /* Previous CSS styles */
 
-    #inputContainer {
-      width: 100%;
-      min-height: 200px;
-      border: 1px solid #ccc;
-      border-radius: 4px;
-      padding: 8px;
-      font-size: 0.8rem;
-      overflow: auto;
-    }
+       #inputContainer {
+           width: 100%;
+           min-height: 200px;
+           border: 1px solid #ccc;
+           border-radius: 4px;
+           padding: 8px;
+           font-size: 0.8rem;
+           overflow: auto;
+       }
 
-    #outputContainer {
-      margin-top: 20px;
-    }
+       #outputContainer {
+           margin-top: 20px;
+       }
 
-    #tableOutput table {
-      border: 1px solid black;
-      border-collapse: collapse;
-      font-size: 0.8rem;
-      margin-bottom: 10px;
-    }
+       #tableOutput table {
+           border: 1px solid black;
+           border-collapse: collapse;
+           font-size: 0.8rem;
+           margin-bottom: 10px;
+       }
 
-    #tableOutput table td, #tableOutput table th {
-        border: 1px solid black;
-        padding: 4px;
-    }
+       #tableOutput table td, #tableOutput table th {
+           border: 1px solid black;
+           padding: 4px;
+       }
 
-    .deleteRowButton {
-      background: transparent;
-      border: none;
-      cursor: pointer;
-    }
+       .deleteRowButton {
+           background: transparent;
+           border: none;
+           cursor: pointer;
+       }
 
-    .deleteColumnButton {
-      background: transparent;
-      border: none;
-      cursor: pointer;
-      display: block;
-      margin: 0 auto;
-    }
-  </style>
+       .deleteColumnButton {
+           background: transparent;
+           border: none;
+           cursor: pointer;
+           display: block;
+           margin: 0 auto;
+       }
+   </style>
 </head>
 <body>
-  <h2>Paste your table below:</h2>
-  <div id="inputContainer" contenteditable="true"></div>
-  <button id="formatButton">Format Table</button>
+   <h2>Paste your table below:</h2>
+   <div id="inputContainer" contenteditable="true"></div>
+   <button id="formatButton">Format Table</button>
 
-  <div id="outputContainer">
-    <h2>Formatted table:</h2>
-    <table>
-      <thead></thead> 
-      <tbody></tbody>   </table>
-  </div>
+   <div id="outputContainer">
+       <h2>Formatted table:</h2>
+       <div id="tableOutput"></div>
+   </div>
 
-  <script src="script.js"></script>
+   <script src="script.js"></script>
 </body>
 </html>
