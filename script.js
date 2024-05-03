@@ -1,9 +1,19 @@
+const processButton = document.getElementById('processButton');
+const inputArea = document.getElementById('tableInput');
+const outputArea = document.getElementById('tableOutput');
+
+processButton.addEventListener('click', function() {
+  const tableText = inputArea.value;
+  const processedTable = processAndDisplayTable(tableText);
+  outputArea.innerHTML = processedTable;
+});
+
 function processAndDisplayTable(tableText) {
   const rows = tableText.split('\n');
 
   // Find the header row (assume the row with the most cells)
   let headerRow = rows[0];
-  let maxCells = headerRow.split(/\s+/).length;  // Estimate by spaces
+  let maxCells = headerRow.split(/\s+/).length;  
   for (let i = 1; i < rows.length; i++) {
     let numCells = rows[i].split(/\s+/).length;
     if (numCells > maxCells) {
@@ -41,7 +51,6 @@ function processAndDisplayTable(tableText) {
   return newTableHTML;
 }
 
-// Helper to strip out basic HTML tags
 function removeBasicHTMLTags(text) {
   return text.replace(/<[^>]+>/g, ''); 
 }
