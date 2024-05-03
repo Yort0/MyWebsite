@@ -1,37 +1,14 @@
-const formatButton = document.getElementById('formatButton');
-const inputArea = document.getElementById('inputContainer');
-const outputArea = document.getElementById('tableOutput');
-
-formatButton.addEventListener('click', function() {
-    const table = inputArea.innerHTML;
-    const formattedTable = formatTable(table);
-    outputArea.innerHTML = formattedTable;
+// Prevent the default behavior of Ctrl+A (selecting the entire page)
+document.addEventListener('keydown', function(event) {
+    if (event.key === 'a' && (event.ctrlKey || event.metaKey)) {
+        event.preventDefault();
+    }
 });
 
-function formatTable(table) {
-    const tempDiv = document.createElement('div');
-    tempDiv.innerHTML = table;
-    const tableElement = tempDiv.querySelector('table');
-
-    if (!tableElement) {
-        return '<p>No table found in input.</p>';
-    }
-
-    const rowCount = tableElement.rows.length;
-    const deleteRowButtonsHTML = generateDeleteRowButtonsHTML(rowCount);
-
-    return tableElement.outerHTML + deleteRowButtonsHTML;
+function processTable() {
+    // JavaScript logic here
 }
 
-function generateDeleteRowButtonsHTML(rowCount) {
-    let buttonsHTML = '';
-    for (let i = 1; i < rowCount; i++) {
-        buttonsHTML += `<div class="deleteButtonContainer"><button class="deleteButton" onclick="deleteRow(${i})">Delete Row ${i}</button></div>`;
-    }
-    return buttonsHTML;
-}
-
-function deleteRow(rowIndex) {
-    const outputTable = document.getElementById('tableOutput').querySelector('table');
-    outputTable.deleteRow(rowIndex);
+function updateTextarea() {
+    // JavaScript logic here
 }
