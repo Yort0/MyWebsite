@@ -13,9 +13,10 @@ function processAndDisplayTable(tableText) {
 
   // Find the header row (assume the row with the most cells)
   let headerRow = rows[0];
-  let maxCells = headerRow.split(/\s+/).length;  
+  let maxCells = headerRow.split(/\s*[,;:\.]\s*/).length;  // Split by spaces, punctuation
+
   for (let i = 1; i < rows.length; i++) {
-    let numCells = rows[i].split(/\s+/).length;
+    let numCells = rows[i].split(/\s*[,;:\.]\s*/).length;
     if (numCells > maxCells) {
       headerRow = rows[i];
       maxCells = numCells;
