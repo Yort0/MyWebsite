@@ -18,7 +18,7 @@ function processAndDisplayTable(tableText) {
         cells.forEach(cell => {
             newTableHTML += `<td>${cell}</td>`;  // Only add cell content
         });
-        newTableHTML += `<td><button onclick="deleteRow(this.parentElement)">Delete</button></td>`;  // Add delete button on the side
+        newTableHTML += `<td><button class="delete-row-button" onclick="deleteRow(this.parentElement.parentElement)">Delete</button></td>`;  // Add delete button on the side
         newTableHTML += '</tr>';
     }
 
