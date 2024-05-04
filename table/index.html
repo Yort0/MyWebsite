@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <title>Table Editor</title>
+   <style>
+       /* Previous CSS styles */
+
+       #inputContainer {
+           width: 100%;
+           height: 200px;
+           max-height: 400px;
+           border: 1px solid #ccc;
+           border-radius: 4px;
+           padding: 8px;
+           font-size: 0.8rem;
+           overflow: auto;
+       }
+
+       #outputContainer {
+           margin-top: 20px;
+           width: 100%;
+           height: 600px;
+           max-height: 800px;
+           border: 1px solid #ccc;
+           border-radius: 4px;
+           padding: 8px;
+           font-size: 0.8rem;
+           overflow: auto;
+       }
+
+       #tableOutput table {
+           border: 1px solid black;
+           border-collapse: collapse;
+           font-size: 0.8rem;
+           margin-bottom: 10px;
+       }
+
+       #tableOutput table td, #tableOutput table th {
+           border: 1px solid black;
+           padding: 4px;
+       }
+
+       .deleteRowButton {
+           background: transparent;
+           border: none;
+           cursor: pointer;
+       }
+
+       .deleteColumnButton {
+           background: transparent;
+           border: none;
+           cursor: pointer;
+           display: block;
+           margin: 0 auto;
+       }
+   </style>
+</head>
+<body>
+   <h2>Paste your table below:</h2>
+   <div id="inputContainer" contenteditable="true"></div>
+   <button id="formatButton">Format Table</button>
+
+   <div id="outputContainer">
+       <h2>Formatted table:</h2>
+       <div id="tableOutput"></div>
+   </div>
+
+   <script src="script.js"></script>
+</body>
+</html>
