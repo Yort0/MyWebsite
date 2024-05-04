@@ -16,6 +16,7 @@ h2 {
 #outputContainer { 
   background-color: #242424;  /* Darker background for containers */
   border: 1px solid #444;     /* Slightly darker border */
+  width: 100%;
 }  
 
 /* Button Styling */
