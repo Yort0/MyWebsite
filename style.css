@@ -1,0 +1,75 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #1d1d1d; /* Black background */
+  color: #f2f2f2;  /* Light gray text */
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  background-color: #000; /* Black header */
+}
+
+header h1 {
+  color: #fff;  /* White for website name */
+}
+
+header nav {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+header nav li {
+  display: inline-block;
+  margin-right: 20px;
+}
+
+header nav a {
+  color: #ddd;  /* Lighter gray for links */
+  text-decoration: none;
+  transition: color 0.3s ease-in-out;
+}
+
+header nav a:hover {
+  color: #ff9900;  /* Orange hover color */
+}
+
+main {
+  padding: 50px;
+}
+
+.hero {
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+.hero h2 {
+  font-size: 2em;
+  color: #fff;
+  margin-bottom: 10px;
+}
+
+.hero p {
+  color: #ddd;
+  font-size: 1.1em;
+  line-height: 1.5;
+  margin-bottom: 20px;
+}
+
+.hero-button {
+  background-color: #ff9900;  /* Orange button */
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease-in-out;
+}
+
+.hero-button:hover {
+  background-
