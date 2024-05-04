@@ -34,4 +34,18 @@ h2 {
   background-color: #e68a00;  /* Slightly darker orange on hover */
 }
 
+/* Delete Row Button Styling */
+.deleteRowButton {
+  background-color: #ff9900;  /* Orange button */
+  color: #fff;                /* White text */
+  padding: 5px 10px;          /* Adjust padding if needed */
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease-in-out; 
+}
+
+.deleteRowButton:hover {
+  background-color: #e68a00;  /* Slightly darker orange on hover */
+}
 /* ... rest of your existing CSS ... */
