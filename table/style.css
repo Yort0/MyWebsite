@@ -1,0 +1,36 @@
+/* Previous CSS styles */
+
+/* General Styling (Integrating the theme) */
+body {
+  font-family: Arial, sans-serif;
+  background-color: #1d1d1d; /* Dark background */
+  color: #f2f2f2;           /* Light text */
+}
+
+h2 {
+  color: #1db954;  /* Futuristic green for headings */
+}
+
+/* Container Styling */
+#inputContainer, 
+#outputContainer { 
+  background-color: #242424;  /* Darker background for containers */
+  border: 1px solid #444;     /* Slightly darker border */
+}  
+
+/* Button Styling */
+#formatButton {
+  background-color: #ff9900;  /* Orange button */
+  color: #fff;                /* White text */
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease-in-out; /* Add a hover transition */
+}
+
+#formatButton:hover {
+  background-color: #e68a00;  /* Slightly darker orange on hover */
+}
+
+/* ... rest of your existing CSS ... */
