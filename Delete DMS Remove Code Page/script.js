@@ -17,10 +17,19 @@ document.addEventListener('DOMContentLoaded', function() {
    });
 
    function cleanText(text) {
-       const tagRegex = /<[^>]*>/g; // Regex to match anything between < and >
-       const entityRegex = /&[^;]+;/g; // Regex to match HTML entities
+       // Replace </li><li> with a space
+       const liRegex = /<\/li>\s*<li>/g;
+       text = text.replace(liRegex, ' ');
 
-       return text.replace(tagRegex, '').replace(entityRegex, '');
+       // Remove all other HTML tags
+       const tagRegex = /<[^>]*>/g;
+       text = text.replace(tagRegex, '');
+
+       // Remove HTML entities
+       const entityRegex = /&[^;]+;/g;
+       text = text.replace(entityRegex, '');
+
+       return text;
    }
 
    function selectElementContents(element) {
