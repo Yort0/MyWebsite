@@ -1,0 +1,52 @@
+/* General Styling (Integrating the theme) */
+body {
+  font-family: Arial, sans-serif;
+  background-color: #1d1d1d; /* Dark background */
+  color: #f2f2f2;           /* Light text */
+}
+
+h2 {
+  color: #1db954;  /* Futuristic green for headings */
+}
+
+/* Container Styling */
+#inputContainer, 
+#outputContainer { 
+  background-color: #242424;  /* Darker background for containers */
+  border: 1px solid #444;     /* Slightly darker border */
+  width: 95%;
+  height: 200px;              /* Set a fixed height */
+  max-height: 400px;
+  border-radius: 4px;
+  padding: 8px;
+  font-size: 0.8rem;
+  overflow: auto;
+  margin-top: 20px;
+}  
+
+/* Button Styling */
+#cleanButton {
+  background-color: #ff9900;  /* Orange button */
+  color: #fff;                /* White text */
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease-in-out; /* Add a hover transition */
+  margin-top: 10px;
+}
+
+#cleanButton:hover {
+  background-color: #e68a00;  /* Slightly darker orange on hover */
+}
+
+/* Output Styling */
+#outputText {
+  background-color: #242424;  /* Same as container background */
+  padding: 8px;
+  border: 1px solid #444;     /* Matching border */
+  border-radius: 4px;
+  margin-top: 10px;
+  font-size: 0.8rem;
+  color: #f2f2f2;            /* Light text */
+}
