@@ -215,14 +215,16 @@ function loadQuestion() {
   const questionContainer = document.getElementById("question-container");
   const answersContainer = document.getElementById("answers");
 
-  if (askedQuestions.length === questions.length) {
+  // If all 20 questions have been asked, grade the quiz
+  if (askedQuestions.length === 20) {
     displayFinalScore();
     return;
   }
 
+  // Randomly select a question that has not been asked yet
   do {
     currentQuestionIndex = Math.floor(Math.random() * questions.length);
-  } while (askedQuestions.includes(currentQuestionIndex));
+  } while (askedQuestions.includes(currentQuestionIndex)); // Ensure no repeats
 
   askedQuestions.push(currentQuestionIndex);
 
@@ -230,6 +232,7 @@ function loadQuestion() {
   questionContainer.textContent = question.question;
   answersContainer.innerHTML = "";
 
+  // Display the answer choices
   question.answers.forEach((answer, index) => {
     const label = document.createElement("label");
     label.innerHTML = `
@@ -262,10 +265,11 @@ function handleFormSubmit(event) {
     feedback.textContent = `Wrong answer. The correct answer is: ${correctAnswer}`;
   }
 
+  // Wait 3 seconds before showing the next question
   setTimeout(() => {
     feedback.textContent = "";
     loadQuestion();
-  }, 3000); // Display the feedback for a bit longer before loading the next question
+  }, 3000); // Display feedback for a bit longer before moving to the next question
 }
 
 function displayFinalScore() {
@@ -275,7 +279,23 @@ function displayFinalScore() {
 
   questionContainer.textContent = "Quiz Complete!";
   answersForm.style.display = "none";
-  scoreDisplay.textContent = `Your final score is ${score} out of ${questions.length}.`;
+  scoreDisplay.textContent = `Your final score is ${score} out of 20.`;
+
+  // Reset for a new quiz
+  setTimeout(() => {
+    resetQuiz();
+  }, 5000); // Delay before resetting the quiz for retake
+}
+
+function resetQuiz() {
+  // Reset variables
+  score = 0;
+  askedQuestions = [];
+  currentQuestionIndex = 0;
+
+  // Show the form again and load the first question
+  document.getElementById("answers-form").style.display = "block";
+  loadQuestion();
 }
 
 document.getElementById("answers-form").addEventListener("submit", handleFormSubmit);
