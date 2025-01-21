@@ -210,6 +210,7 @@ const questions = [
 let currentQuestionIndex = 0;
 let score = 0;
 let askedQuestions = [];
+let isQuestionAnswered = false; // To check if the question has been answered
 
 function loadQuestion() {
   const questionContainer = document.getElementById("question-container");
@@ -241,6 +242,12 @@ function loadQuestion() {
     `;
     answersContainer.appendChild(label);
   });
+
+  // Reset the isQuestionAnswered flag for the new question
+  isQuestionAnswered = false;
+
+  // Enable the "Next Question" button
+  document.getElementById("next-btn").disabled = true;
 }
 
 function handleFormSubmit(event) {
@@ -265,11 +272,16 @@ function handleFormSubmit(event) {
     feedback.textContent = `Wrong answer. The correct answer is: ${correctAnswer}`;
   }
 
-  // Wait 3 seconds before showing the next question
-  setTimeout(() => {
-    feedback.textContent = "";
-    loadQuestion();
-  }, 3000); // Display feedback for a bit longer before moving to the next question
+  // Set the flag to true and enable the "Next Question" button
+  isQuestionAnswered = true;
+  document.getElementById("next-btn").disabled = false;
+}
+
+function nextQuestion() {
+  // Only load the next question if the current one has been answered
+  if (!isQuestionAnswered) return;
+
+  loadQuestion(); // Load the next question
 }
 
 function displayFinalScore() {
@@ -281,7 +293,7 @@ function displayFinalScore() {
   answersForm.style.display = "none";
   scoreDisplay.textContent = `Your final score is ${score} out of 20.`;
 
-  // Reset for a new quiz
+  // Reset for a new quiz after a delay
   setTimeout(() => {
     resetQuiz();
   }, 5000); // Delay before resetting the quiz for retake
@@ -299,5 +311,6 @@ function resetQuiz() {
 }
 
 document.getElementById("answers-form").addEventListener("submit", handleFormSubmit);
+document.getElementById("next-btn").addEventListener("click", nextQuestion);
 document.addEventListener("DOMContentLoaded", loadQuestion);
 
