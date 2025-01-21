@@ -1,1 +1,71 @@
+/* Quiz Page-Specific Styles */
+
+/* Center the quiz section */
+.quiz-section {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #2a2a2a; /* Dark gray background for contrast */
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.quiz-section h2 {
+  text-align: center;
+  color: #ff9900; /* Orange header for emphasis */
+  margin-bottom: 20px;
+}
+
+/* Question text styling */
+#question-container {
+  font-size: 1.2em;
+  margin-bottom: 20px;
+  color: #f2f2f2;
+}
+
+/* Answer options styling */
+#answers label {
+  display: block;
+  margin-bottom: 10px;
+  font-size: 1em;
+  color: #ddd; /* Light gray text */
+  cursor: pointer;
+}
+
+#answers input[type="radio"] {
+  margin-right: 10px;
+}
+
+/* Feedback message styling */
+#feedback {
+  font-size: 1em;
+  margin-top: 10px;
+  color: #ff9900; /* Orange text */
+  text-align: center;
+}
+
+/* Score display styling */
+#score {
+  margin-top: 10px;
+  font-size: 1.2em;
+  font-weight: bold;
+  text-align: center;
+  color: #4caf50; /* Green for positivity */
+}
+
+/* Submit button styling */
+.quiz-button {
+  background-color: #ff9900;
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  font-size: 1em;
+  cursor: pointer;
+  transition: background-color 0.3s ease-in-out;
+}
+
+.quiz-button:hover {
+  background-color: #e68a00; /* Slightly darker orange */
+}
 
