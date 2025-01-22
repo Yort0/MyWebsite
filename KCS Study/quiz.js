@@ -19,6 +19,7 @@ const questions = [
     answers: ["To ensure all articles are written in the same style", "To measure and improve the quality of knowledge articles", "To track the number of articles published daily", "To identify the most popular articles"],
     correct: 1
   },
+  //5.
   {
     question: "Which statement best describes the KCS double-loop process?",
     answers: ["It is a process to evaluate knowledge base performance", "It is a feedback mechanism for continuous improvement", "It includes both individual and organizational learning", "It refers to revisiting problems to create more detailed articles"],
@@ -70,6 +71,7 @@ const questions = [
     answers: ["Reduces the time required to create a knowledge base", "Ensures that knowledge is relevant and accurate", "Allows for faster article approval by management", "Prevents duplicate articles from being created"],
     correct: 1
   },
+  //15.
   {
     question: "In KCS, what is the role of the Knowledge Worker?",
     answers: ["To review and approve knowledge base articles", "To create, reuse, and update knowledge articles during their workflow", "To oversee the entire knowledge management process", "To train other team members on KCS principles"],
@@ -91,16 +93,11 @@ const questions = [
     correct: 2
   },
   {
-    question: "What does the 'Solve Loop' focus on in the KCS methodology?",
-    answers: ["Monitoring article quality over time", "Analyzing and improving overall organizational processes", "Integrating knowledge activities into problem-solving workflows", "Training employees on knowledge management tools"],
-    correct: 2
-  },
-      // 20.
-  {
     question: "Why is trust important in a KCS implementation?",
     answers: ["It ensures customers rely on the knowledge base for answers", "It allows employees to confidently contribute and modify knowledge", "It prevents employees from misusing knowledge articles", "It ensures management reviews all published content"],
     correct: 1
   },
+  //20.
   {
     question: "What is a core tenet of KCS regarding article creation?",
     answers: ["Articles should be as detailed as possible, regardless of frequency of use", "Articles should be written only by experts in the subject", "Articles should be 'good enough' for reuse and improve over time", "Articles should include comprehensive metadata at the start"],
@@ -121,12 +118,12 @@ const questions = [
     answers: ["By focusing exclusively on increasing customer satisfaction", "By driving operational efficiency and enabling continuous improvement", "By creating a standalone knowledge base team", "By replacing traditional support systems entirely"],
     correct: 1
   },
-      // 25.
   {
     question: "What is a Knowledge State?",
     answers: ["It is a condition when information is defined as trusted knowledge", "It is the form used to define knowledge", "It is the status of the article in the knowledge article life cycle", "It is the time when tacit knowledge becomes explicit"],
     correct: 2
   },
+  //25.
   {
     question: "Who normally performs the knowledge monitoring process?",
     answers: ["Everyone", "KCS Coaches", "KCS Publishers", "KCS Program Team"],
@@ -147,12 +144,12 @@ const questions = [
     answers: ["Framework", "Methodology", "Philosophy", "Standard"],
     correct: 1
   },
-  // 30.
   {
     question: "What are the three levels of KCS benefits?",
     answers: ["Centralized, Distributed, Virtual", "Direct, Applied, Leveraged", "Operational, Tactical, Strategic", "Significant, Major, Minor"],
     correct: 1
   },
+  //30.
   {
     question: "Which KCS role is responsible for monitoring processes and mentoring people?",
     answers: ["KCS Candidate", "KCS Coach", "KCS Manager", "KCS Publisher"],
@@ -178,6 +175,7 @@ const questions = [
     answers: ["KCS Coach", "KCS Publisher", "Knowledge Domain Expert", "Management"],
     correct: 2
   },
+  //35.
   {
     question: "Which of the following is a leading indicator?",
     answers: ["Cost per Incident", "Customer Satisfaction", "Knowledge Quality Index", "Participation Rate"],
@@ -198,22 +196,12 @@ const questions = [
     answers: ["Cause", "Environment", "Resolution", "Title"],
     correct: 1
   },
-  // 40.
   {
     question: "Which KCS role is the most important when it comes to establishing the vision and objectives of the KCS program?",
     answers: ["KCS Coach", "KCS Council", "KCS Program Team", "Sponsor"],
     correct: 3
   },
-  {
-  question: "What is the primary goal of KCS?",
-  answers: ["Reduce operational costs", "Create a knowledge base for marketing", "Integrate knowledge creation into the problem-solving process", "Automate customer service entirely"],
-  correct: 2
-},
-{
-  question: "What are the four main principles of KCS?",
-  answers: ["Capture, Structure, Reuse, Improve", "Solve, Share, Standardize, Scale", "Knowledge, Collaboration, Sharing, Service", "Capture, Automate, Enhance, Deliver"],
-  correct: 0
-},
+    // 40.
 {
   question: "Which step in KCS involves capturing the customer's context?",
   answers: ["Structure", "Reuse", "Capture", "Improve"],
@@ -239,6 +227,7 @@ const questions = [
   answers: ["It focuses on automation", "Knowledge is created as a byproduct of solving problems", "It eliminates the need for human input", "It relies on static knowledge articles"],
   correct: 1
 },
+  //45.
 {
   question: "What role does the 'Evolve Loop' play in KCS?",
   answers: ["It ensures continuous improvement of the knowledge base", "It helps in onboarding new team members", "It focuses on automating customer interactions", "It eliminates duplicate articles"],
@@ -264,6 +253,7 @@ const questions = [
   answers: ["Number of articles created per agent", "Percentage of issues resolved using existing knowledge", "Time taken to escalate issues", "Total size of the knowledge base"],
   correct: 1
 },
+  //50.
 {
   question: "Why is it important to capture context in KCS articles?",
   answers: ["To ensure articles are written formally", "To reduce the need for updates", "To make the knowledge more findable and reusable", "To minimize search time for support teams"],
@@ -289,6 +279,7 @@ const questions = [
   answers: ["Through periodic audits by management", "By encouraging users to update and improve articles as needed", "By limiting knowledge contribution to subject matter experts", "Through automated article deletion processes"],
   correct: 1
 },
+  //55.
 {
   question: "What is the main purpose of the 'Just-in-Time' approach in KCS?",
   answers: ["To ensure knowledge is created only when required", "To reduce redundancy in knowledge creation", "To deliver relevant knowledge during problem-solving", "To automate customer interactions"],
@@ -297,16 +288,6 @@ const questions = [
 {
   question: "What does KCS suggest about the lifecycle of knowledge?",
   answers: ["It should be predefined and static", "It evolves continuously based on usage and feedback", "It ends once the issue is resolved", "It should be archived after one year"],
-  correct: 1
-},
-  {
-  question: "Which step in KCS involves capturing the customer's context?",
-  answers: ["Structure", "Reuse", "Capture", "Improve"],
-  correct: 2
-},
-{
-  question: "In the KCS methodology, what does 'reuse' emphasize?",
-  answers: ["Creating new articles for each issue", "Referring to and improving existing knowledge", "Archiving outdated content", "Avoiding the use of old knowledge"],
   correct: 1
 },
 {
@@ -322,6 +303,64 @@ const questions = [
 {
   question: "How does KCS differ from traditional knowledge management approaches?",
   answers: ["It focuses on automation", "Knowledge is created as a byproduct of solving problems", "It eliminates the need for human input", "It relies on static knowledge articles"],
+  correct: 1
+},
+  //60.
+  {
+  question: "What is the primary reason to align KCS practices with organizational goals?",
+  answers: ["To simplify team management", "To ensure knowledge initiatives support business outcomes", "To reduce operational costs", "To increase the volume of knowledge articles"],
+  correct: 1
+},
+{
+  question: "Which of the following best defines the 'Double Loop Process' in KCS?",
+  answers: ["A process for editing knowledge articles", "A feedback mechanism for continuous improvement", "A method to duplicate articles for faster access", "A system for agent performance evaluation"],
+  correct: 1
+},
+{
+  question: "How does the KCS approach view knowledge ownership?",
+  answers: ["Knowledge is owned by the team", "Knowledge is owned by the individual who created it", "Knowledge is owned by the customer", "Knowledge is a shared organizational asset"],
+  correct: 3
+},
+{
+  question: "Why is capturing knowledge in the context of use essential in KCS?",
+  answers: ["To ensure the article is reviewed later", "To provide accurate, relevant, and timely knowledge", "To increase the volume of articles in the system", "To ensure all team members contribute equally"],
+  correct: 1
+},
+{
+  question: "What is the role of leadership in supporting KCS adoption?",
+  answers: ["Enforcing strict policies on article creation", "Providing tools and removing barriers for KCS practices", "Assigning individual knowledge quotas", "Reducing the size of the knowledge base"],
+  correct: 1
+},
+  //65.
+{
+  question: "What does the 'Good Enough to Solve' principle emphasize?",
+  answers: ["Publishing articles only after multiple reviews", "Ensuring articles meet basic needs to resolve issues", "Prioritizing aesthetic presentation over content", "Creating articles exclusively for high-priority issues"],
+  correct: 1
+},
+{
+  question: "Which statement best reflects the 'Abundance' principle in KCS?",
+  answers: ["Focus on creating a limited number of high-quality articles", "Encourage knowledge sharing without overthinking value", "Avoid capturing repetitive issues", "Limit access to knowledge to maintain exclusivity"],
+  correct: 1
+},
+{
+  question: "How does KCS address the concept of knowledge decay?",
+  answers: ["By archiving articles periodically", "Through continuous use and refinement of knowledge", "By setting expiration dates for all articles", "By limiting knowledge contributions"],
+  correct: 1
+},
+{
+  question: "What is the best indicator of value creation in a KCS-driven knowledge base?",
+  answers: ["The number of articles published", "The number of articles reused to resolve issues", "The number of authors contributing", "The frequency of system updates"],
+  correct: 1
+},
+  //70.
+{
+  question: "What is a critical factor for ensuring the long-term success of KCS?",
+  answers: ["Limiting contributions to senior staff", "Embedding KCS practices into daily workflows", "Focusing solely on technical accuracy", "Restricting knowledge sharing to internal teams"],
+  correct: 1
+},
+  {
+  question: "When a support agent encounters an issue that already has a relevant article in the knowledge base, what is the most aligned action with KCS principles?",
+  answers: ["Acknowledge the article internally but solve the issue without referencing it to avoid overloading the customer with details.", "Use the article as is, sharing it with the customer if it’s complete and relevant.", "Rewrite the article with your own style to personalize the response for the customer.", "Create a new article describing the issue in your own words to reflect your understanding."],
   correct: 1
 }
   // Add more questions as needed
