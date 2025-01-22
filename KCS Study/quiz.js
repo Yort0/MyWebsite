@@ -635,6 +635,10 @@ function nextQuestion() {
   // Only load the next question if the current one has been answered
   if (!isQuestionAnswered) return;
 
+    // Clear feedback message
+  const feedback = document.getElementById("feedback");
+  feedback.textContent = "";
+
   loadQuestion(); // Load the next question
 }
 
