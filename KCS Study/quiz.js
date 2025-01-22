@@ -49,7 +49,7 @@ const questions = [
   {
     question: "Which role is primarily responsible for maintaining article quality in a KCS system?",
     answers: ["Knowledge Domain Expert", "Article Reviewer", "Knowledge Worker", "KCS Coach"],
-    correct: 3
+    correct: 2
   },
   {
     question: "What is a key indicator of success in a KCS implementation?",
@@ -127,12 +127,12 @@ const questions = [
   {
     question: "Who normally performs the knowledge monitoring process?",
     answers: ["Everyone", "KCS Coaches", "KCS Publishers", "KCS Program Team"],
-    correct: 1
+    correct: 0
   },
   {
     question: "What is the primary purpose of knowledge monitoring?",
     answers: ["Create a knowledge quality index", "Ensure that the process is being followed", "Identify and eliminate redundancy", "Improve the skills of the analysts"],
-    correct: 3
+    correct: 1
   },
   {
     question: "What are three key components of the visibility matrix?",
@@ -362,7 +362,79 @@ const questions = [
   question: "When a support agent encounters an issue that already has a relevant article in the knowledge base, what is the most aligned action with KCS principles?",
   answers: ["Acknowledge the article internally but solve the issue without referencing it to avoid overloading the customer with details.", "Use the article as is, sharing it with the customer if it’s complete and relevant.", "Rewrite the article with your own style to personalize the response for the customer.", "Create a new article describing the issue in your own words to reflect your understanding."],
   correct: 1
-}
+},
+  {
+  "question": "KCS emphasizes 'abundance' over 'scarcity' when it comes to knowledge. What does this mean in practical terms?",
+  "answers": [
+      "Knowledge should be tightly controlled and access limited to experts.",
+      "Every piece of information, regardless of its value, should be documented.",
+      "The focus should be on capturing and sharing as much relevant knowledge as possible, trusting that value will emerge through use and refinement.",
+      "Only perfectly polished and validated knowledge should be shared."
+  ],
+    "correct": 2
+  },
+  {
+    "question": "How does the KCS principle of 'create value through use' challenge traditional knowledge management approaches?",
+    "answers": [
+      "It suggests that knowledge is most valuable when it is passively stored and readily accessible.",
+      "It proposes that knowledge gains value through its application and refinement in real-world scenarios, rather than through upfront investment in perfect documentation.",
+      "It argues that knowledge should be created independently of any specific problem or context.",
+      "It implies that knowledge is only valuable if it can be easily automated."
+    ],
+    "correct": 1
+  },
+  {
+    "question": "Why is the concept of 'collective ownership' crucial to the success of a KCS implementation?",
+    "answers": [
+      "It ensures that a single individual is responsible for the accuracy of each article.",
+      "It fosters a sense of shared responsibility for knowledge quality and encourages continuous improvement by everyone.",
+      "It simplifies the process of assigning blame when knowledge is inaccurate.",
+      "It allows for easier management of knowledge access and permissions."
+    ],
+    "correct": 1
+  },
+  //75.
+  {
+    "question": "KCS advocates for 'just-in-time' knowledge capture and creation. What is the primary advantage of this approach compared to creating comprehensive documentation upfront?",
+    "answers": [
+      "It reduces the initial investment required for knowledge management.",
+      "It ensures that knowledge is captured in the context of its use, making it more relevant and easier to reuse.",
+      "It eliminates the need for any formal knowledge management processes.",
+      "It guarantees that all possible scenarios are documented before they occur."
+    ],
+    "correct": 1
+  },
+    {
+    "question": "How does the 'double loop' feedback process in KCS contribute to organizational learning and improvement?",
+    "answers": [
+      "It focuses solely on individual performance and identifies areas for training.",
+      "It creates a system for tracking the number of articles created and their usage statistics.",
+      "It facilitates both individual learning (improving articles through use) and organizational learning (improving processes and the knowledge base as a whole).",
+      "It automates the process of identifying and deleting outdated articles."
+    ],
+    "correct": 2
+  },
+      {
+    "question": "What is the philosophical shift that KCS promotes regarding the role of support staff?",
+    "answers": [
+      "From being problem solvers to becoming knowledge creators and sharers.",
+      "From focusing on efficiency to prioritizing customer interactions.",
+      "From adhering to strict scripts to using their own judgment.",
+      "From working independently to collaborating closely with other departments."
+    ],
+    "correct": 0
+  },
+    {
+    "question": "How does KCS address the challenge of knowledge becoming outdated or irrelevant over time?",
+    "answers": [
+      "By requiring regular audits and updates by designated experts.",
+      "By relying on the collective use and improvement of knowledge by the community, ensuring it evolves with changing needs.",
+      "By archiving all articles after a fixed period.",
+      "By strictly limiting the number of articles created to prevent redundancy."
+    ],
+    "correct": 1
+  }
+  
   // Add more questions as needed
 ];
 
