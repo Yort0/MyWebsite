@@ -23,6 +23,15 @@
   color: #f2f2f2;
 }
 
+/* Question count styling */
+#question-count {
+  font-size: 1.2em;
+  font-weight: bold;
+  margin-bottom: 15px;
+  color: #ff9900; /* Matches the orange theme */
+  text-align: center; /* Center-align the question count */
+}
+
 /* Answer options styling */
 #answers label {
   display: block;
