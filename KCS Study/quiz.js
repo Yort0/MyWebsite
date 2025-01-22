@@ -203,7 +203,127 @@ const questions = [
     question: "Which KCS role is the most important when it comes to establishing the vision and objectives of the KCS program?",
     answers: ["KCS Coach", "KCS Council", "KCS Program Team", "Sponsor"],
     correct: 3
-  }
+  },
+  {
+  question: "What is the primary goal of KCS?",
+  answers: ["Reduce operational costs", "Create a knowledge base for marketing", "Integrate knowledge creation into the problem-solving process", "Automate customer service entirely"],
+  correct: 2
+},
+{
+  question: "What are the four main principles of KCS?",
+  answers: ["Capture, Structure, Reuse, Improve", "Solve, Share, Standardize, Scale", "Knowledge, Collaboration, Sharing, Service", "Capture, Automate, Enhance, Deliver"],
+  correct: 0
+},
+{
+  question: "Which step in KCS involves capturing the customer's context?",
+  answers: ["Structure", "Reuse", "Capture", "Improve"],
+  correct: 2
+},
+{
+  question: "In the KCS methodology, what does 'reuse' emphasize?",
+  answers: ["Creating new articles for each issue", "Referring to and improving existing knowledge", "Archiving outdated content", "Avoiding the use of old knowledge"],
+  correct: 1
+},
+{
+  question: "What is the purpose of the 'Improve' principle in KCS?",
+  answers: ["To ensure the knowledge base is always accurate and up-to-date", "To automate the process of creating articles", "To reduce the time spent on solving problems", "To increase customer satisfaction only"],
+  correct: 0
+},
+{
+  question: "Which of the following is NOT a benefit of implementing KCS?",
+  answers: ["Faster resolution of issues", "Increased operational costs", "Enhanced customer satisfaction", "Better collaboration among teams"],
+  correct: 1
+},
+{
+  question: "How does KCS differ from traditional knowledge management approaches?",
+  answers: ["It focuses on automation", "Knowledge is created as a byproduct of solving problems", "It eliminates the need for human input", "It relies on static knowledge articles"],
+  correct: 1
+},
+{
+  question: "What role does the 'Evolve Loop' play in KCS?",
+  answers: ["It ensures continuous improvement of the knowledge base", "It helps in onboarding new team members", "It focuses on automating customer interactions", "It eliminates duplicate articles"],
+  correct: 0
+},
+{
+  question: "What is the KCS licensing model designed to achieve?",
+  answers: ["Control access to knowledge", "Certify the quality of knowledge contributors", "Set expectations for knowledge-sharing behaviors", "Limit the number of knowledge contributors"],
+  correct: 2
+},
+{
+  question: "How does KCS define success for a knowledge article?",
+  answers: ["Accuracy and compliance with templates", "Ease of automation and search", "Its usefulness in resolving real customer issues", "The frequency of its reuse"],
+  correct: 2
+},
+{
+  question: "What is a key consideration when transitioning to a KCS model?",
+  answers: ["Immediately replace all old knowledge", "Ensure technology fully automates knowledge creation", "Shift the organizational culture towards collaboration and learning", "Hire external consultants for knowledge management"],
+  correct: 2
+},
+{
+  question: "Which metric aligns with KCS practices?",
+  answers: ["Number of articles created per agent", "Percentage of issues resolved using existing knowledge", "Time taken to escalate issues", "Total size of the knowledge base"],
+  correct: 1
+},
+{
+  question: "Why is it important to capture context in KCS articles?",
+  answers: ["To ensure articles are written formally", "To reduce the need for updates", "To make the knowledge more findable and reusable", "To minimize search time for support teams"],
+  correct: 2
+},
+{
+  question: "What does the 'Solve Loop' focus on in KCS?",
+  answers: ["Capturing new knowledge during problem resolution", "Automating article improvement", "Training agents on knowledge management", "Standardizing the format of all knowledge articles"],
+  correct: 0
+},
+{
+  question: "What is the value of flagging articles for review in KCS?",
+  answers: ["To ensure articles meet compliance standards", "To prioritize outdated articles for deletion", "To engage knowledge workers in continuous improvement", "To validate customer satisfaction with the knowledge base"],
+  correct: 2
+},
+{
+  question: "In KCS, how is the concept of ownership redefined?",
+  answers: ["Articles are owned by specific authors", "Ownership is shared across the organization", "Ownership is eliminated altogether", "Knowledge owners are limited to senior managers"],
+  correct: 1
+},
+{
+  question: "How does KCS ensure knowledge quality over time?",
+  answers: ["Through periodic audits by management", "By encouraging users to update and improve articles as needed", "By limiting knowledge contribution to subject matter experts", "Through automated article deletion processes"],
+  correct: 1
+},
+{
+  question: "What is the main purpose of the 'Just-in-Time' approach in KCS?",
+  answers: ["To ensure knowledge is created only when required", "To reduce redundancy in knowledge creation", "To deliver relevant knowledge during problem-solving", "To automate customer interactions"],
+  correct: 2
+},
+{
+  question: "What does KCS suggest about the lifecycle of knowledge?",
+  answers: ["It should be predefined and static", "It evolves continuously based on usage and feedback", "It ends once the issue is resolved", "It should be archived after one year"],
+  correct: 1
+},
+  {
+  question: "Which step in KCS involves capturing the customer's context?",
+  answers: ["Structure", "Reuse", "Capture", "Improve"],
+  correct: 2
+},
+{
+  question: "In the KCS methodology, what does 'reuse' emphasize?",
+  answers: ["Creating new articles for each issue", "Referring to and improving existing knowledge", "Archiving outdated content", "Avoiding the use of old knowledge"],
+  correct: 1
+},
+{
+  question: "What is the purpose of the 'Improve' principle in KCS?",
+  answers: ["To ensure the knowledge base is always accurate and up-to-date", "To automate the process of creating articles", "To reduce the time spent on solving problems", "To increase customer satisfaction only"],
+  correct: 0
+},
+{
+  question: "Which of the following is NOT a benefit of implementing KCS?",
+  answers: ["Faster resolution of issues", "Increased operational costs", "Enhanced customer satisfaction", "Better collaboration among teams"],
+  correct: 1
+},
+{
+  question: "How does KCS differ from traditional knowledge management approaches?",
+  answers: ["It focuses on automation", "Knowledge is created as a byproduct of solving problems", "It eliminates the need for human input", "It relies on static knowledge articles"],
+  correct: 1
+}
   // Add more questions as needed
 ];
 
