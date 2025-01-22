@@ -15,13 +15,25 @@
     <section class="quiz-section">
       <h2>KCS Study Quiz</h2>
       <div id="quiz-container">
+        <!-- Display the question count -->
+        <p id="question-count"></p>
+        
+        <!-- Container for the current question -->
         <div id="question-container"></div>
+
+        <!-- Form for answer options -->
         <form id="answers-form">
           <div id="answers"></div>
           <button type="submit" class="quiz-button">Submit</button>
         </form>
+
+        <!-- Feedback for the current question -->
         <p id="feedback"></p>
+
+        <!-- Final score display -->
         <p id="score"></p>
+
+        <!-- Button to proceed to the next question -->
         <button id="next-btn" disabled>Next Question</button>
       </div>
     </section>
