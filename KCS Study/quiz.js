@@ -525,7 +525,17 @@ const questions = [
         "Use only team-based metrics"
     ],
     "correct": 1
-}
+},
+    {
+    question: "What are two benefits of having a KCS Content Standard?",
+    answers: [
+      "It improves the quality of incidents",
+      "It defines the structure of an Article",
+      "It defines the structure of an incident",
+      "It improves the quality of KCS Articles"
+    ],
+    correctAnswers: [1, 3] 
+  }
   
   // Add more questions as needed
 ];
@@ -538,6 +548,7 @@ let isQuestionAnswered = false; // To check if the question has been answered
 function loadQuestion() {
   const questionContainer = document.getElementById("question-container");
   const answersContainer = document.getElementById("answers");
+  const questionCountContainer = document.getElementById("question-count");
 
   // If all 20 questions have been asked, grade the quiz
   if (askedQuestions.length === 20) {
@@ -548,7 +559,7 @@ function loadQuestion() {
   // Randomly select a question that has not been asked yet
   do {
     currentQuestionIndex = Math.floor(Math.random() * questions.length);
-  } while (askedQuestions.includes(currentQuestionIndex)); // Ensure no repeats
+  } while (askedQuestions.includes(currentQuestionIndex));
 
   askedQuestions.push(currentQuestionIndex);
 
@@ -560,11 +571,15 @@ function loadQuestion() {
   question.answers.forEach((answer, index) => {
     const label = document.createElement("label");
     label.innerHTML = `
-      <input type="radio" name="answer" value="${index}">
+      <input type="${Array.isArray(question.correctAnswers) ? "checkbox" : "radio"}" name="answer" value="${index}">
       ${answer}
     `;
     answersContainer.appendChild(label);
   });
+
+  // Update the question count (e.g., Question 1 of 20)
+  const currentQuestionNumber = askedQuestions.length;
+  questionCountContainer.textContent = `Question ${currentQuestionNumber} of 20`;
 
   // Reset the isQuestionAnswered flag for the new question
   isQuestionAnswered = false;
@@ -576,23 +591,39 @@ function loadQuestion() {
 function handleFormSubmit(event) {
   event.preventDefault();
 
-  const selected = document.querySelector("input[name='answer']:checked");
+  const selected = Array.from(document.querySelectorAll("input[name='answer']:checked"));
   const feedback = document.getElementById("feedback");
 
-  if (!selected) {
-    feedback.textContent = "Please select an answer.";
+  if (selected.length === 0) {
+    feedback.textContent = "Please select at least one answer.";
     return;
   }
 
-  const isCorrect = parseInt(selected.value) === questions[currentQuestionIndex].correct;
+  const question = questions[currentQuestionIndex];
+  const selectedValues = selected.map(input => parseInt(input.value));
+
+  let isCorrect;
+  if (Array.isArray(question.correctAnswers)) {
+    // For multiple correct answers
+    isCorrect =
+      selectedValues.length === question.correctAnswers.length &&
+      selectedValues.every(val => question.correctAnswers.includes(val));
+  } else {
+    // For single correct answer
+    isCorrect = selectedValues[0] === question.correct;
+  }
 
   if (isCorrect) {
     score++;
     feedback.textContent = "Correct!";
   } else {
-    // Show the correct answer if the user is wrong
-    const correctAnswer = questions[currentQuestionIndex].answers[questions[currentQuestionIndex].correct];
-    feedback.textContent = `Wrong answer. The correct answer is: ${correctAnswer}`;
+    if (Array.isArray(question.correctAnswers)) {
+      const correctAnswersText = question.correctAnswers.map(idx => question.answers[idx]).join(", ");
+      feedback.textContent = `Wrong. Correct answers are: ${correctAnswersText}`;
+    } else {
+      const correctAnswerText = question.answers[question.correct];
+      feedback.textContent = `Wrong. The correct answer is: ${correctAnswerText}`;
+    }
   }
 
   // Set the flag to true and enable the "Next Question" button
