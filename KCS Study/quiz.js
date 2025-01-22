@@ -71,6 +71,47 @@ const questions = [
       "It improves the quality of KCS Articles"
     ],
     correctAnswers: [1, 3] 
+  },
+  {
+    "question": "A KCS publisher is working with a customer to resolve an issue. The KCS Publisher could not find the Article using the customer's problem terms, but easily translated the customer's terms to the technically correct terms and found the resolution in an existing article. What two things should the KCS publisher do?",
+    "answers": [
+      "Reuse the existing Article",
+      "Flag the existing Article for rework",
+      "Create a new Article with the customer terms",
+      "Add the customer terms to the existing Article"
+    ],
+    "correctAnswers": [0, 3]
+  },
+  {
+    "question": "Which two statements are true about the Article Quality Index?",
+    "answers": [
+      "It is used to measure the completeness of a KCS Article",
+      "It is used as a benchmark quality index for the support industry",
+      "The AQI is used to measure how well an Article complies with the content standard",
+      "Before an Article is published, it should be scored using the AQI process to ensure it is accurate and adheres to standards"
+    ],
+    "correctAnswers": [0, 2]
+  },
+  {
+    "question": "Which three elements should be included in a KCS Article?",
+    "answers": [
+      "Incident status",
+      "Resolution steps",
+      "Customer contact details",
+      "Customer's problem or question",
+      "Environment (product names and versions)"
+    ],
+    "correctAnswers": [1, 3, 4]
+  },
+  {
+    "question": "Which of the following are considered Activities (aka leading indicators)?",
+    "answers": [
+      "Employee Engagement",
+      "Customer Satisfaction",
+      "Link Rate",
+      "Article Life Cycle"
+    ],
+    "correctAnswers": [2, 3]
   }
   
   // Add more questions as needed
