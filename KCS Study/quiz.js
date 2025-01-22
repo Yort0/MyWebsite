@@ -423,7 +423,109 @@ const questions = [
       "By strictly limiting the number of articles created to prevent redundancy."
     ],
     "correct": 1
-  }
+  },
+  {
+    "question": "In a scenario where two valid but conflicting solutions exist for the same issue, what is the KCS-aligned approach?",
+    "answers": [
+        "Create separate articles for each solution and let users choose",
+        "Document both solutions in a single article with clear context for when each applies",
+        "Only document the most commonly used solution",
+        "Escalate to management to determine the official solution"
+    ],
+    "correct": 1
+},
+{
+    "question": "How does the KCS principle of 'demand-driven participation' challenge traditional knowledge management roles?",
+    "answers": [
+        "It eliminates the need for knowledge managers completely",
+        "It suggests that expertise emerges through participation rather than being predetermined by role or position",
+        "It requires all employees to participate equally in knowledge creation",
+        "It places more emphasis on formal training and certification"
+    ],
+    "correct": 1
+},
+{
+    "question": "When implementing KCS in a highly regulated industry, how should the principle of 'abundance' be balanced with compliance requirements?",
+    "answers": [
+        "Abandon the abundance principle in favor of strict control",
+        "Create separate knowledge bases for regulated and non-regulated content",
+        "Integrate compliance requirements into the workflow while maintaining open contribution",
+        "Restrict knowledge creation to compliance team members only"
+    ],
+    "correct": 2
+},
+{
+    "question": "How should a KCS implementation handle tribal knowledge that contradicts official documentation?",
+    "answers": [
+        "Always defer to official documentation",
+        "Document the tribal knowledge separately as unofficial content",
+        "Capture the contradiction and initiate a resolution process to update official documentation",
+        "Ignore tribal knowledge in favor of standardization"
+    ],
+    "correct": 2
+},
+  //80.
+{
+    "question": "In KCS, how should organizations handle the tension between 'speed to publish' and 'accuracy of content'?",
+    "answers": [
+        "Prioritize accuracy over speed in all cases",
+        "Implement a rapid publish model with clear indicators of content maturity and confidence levels",
+        "Create separate workflows for urgent vs. standard knowledge creation",
+        "Always require peer review before publishing"
+    ],
+    "correct": 1
+},
+{
+    "question": "How does the KCS concept of 'perspective' influence article structure when dealing with multi-tenant environments?",
+    "answers": [
+        "Create separate articles for each tenant",
+        "Use metadata and filtering to adapt single articles to different contexts",
+        "Maintain a generic version that works for all tenants",
+        "Only document common scenarios across tenants"
+    ],
+    "correct": 1
+},
+{
+    "question": "When implementing KCS in a global organization, how should local variations in process be handled?",
+    "answers": [
+        "Standardize all processes globally",
+        "Allow complete local autonomy",
+        "Create a framework that defines what must be consistent and what can be locally adapted",
+        "Maintain separate knowledge bases for each region"
+    ],
+    "correct": 2
+},
+{
+    "question": "How does the 'Solve Loop' need to be modified when dealing with AI-powered customer interactions?",
+    "answers": [
+        "Replace the Solve Loop with AI automation",
+        "Maintain the same process regardless of AI involvement",
+        "Integrate AI insights while preserving human validation and knowledge capture",
+        "Create separate processes for AI and human interactions"
+    ],
+    "correct": 2
+},
+{
+    "question": "In a scenario where KCS adoption is creating tension with existing ITIL processes, what is the recommended approach?",
+    "answers": [
+        "Abandon ITIL in favor of KCS",
+        "Keep KCS and ITIL processes completely separate",
+        "Identify integration points where KCS can enhance ITIL processes while maintaining governance",
+        "Modify KCS to fit within ITIL framework"
+    ],
+    "correct": 2
+},
+  //85.
+{
+    "question": "How should the KCS health metrics be adjusted when implementing in an organization with high staff turnover?",
+    "answers": [
+        "Focus solely on article quality metrics",
+        "Modify participation and contribution metrics to account for learning curves and tenure",
+        "Eliminate individual performance metrics",
+        "Use only team-based metrics"
+    ],
+    "correct": 1
+}
   
   // Add more questions as needed
 ];
