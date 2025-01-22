@@ -291,21 +291,10 @@ const questions = [
   correct: 1
 },
 {
-  question: "What is the purpose of the 'Improve' principle in KCS?",
-  answers: ["To ensure the knowledge base is always accurate and up-to-date", "To automate the process of creating articles", "To reduce the time spent on solving problems", "To increase customer satisfaction only"],
-  correct: 0
-},
-{
-  question: "Which of the following is NOT a benefit of implementing KCS?",
-  answers: ["Faster resolution of issues", "Increased operational costs", "Enhanced customer satisfaction", "Better collaboration among teams"],
-  correct: 1
-},
-{
   question: "How does KCS differ from traditional knowledge management approaches?",
   answers: ["It focuses on automation", "Knowledge is created as a byproduct of solving problems", "It eliminates the need for human input", "It relies on static knowledge articles"],
   correct: 1
 },
-  //60.
   {
   question: "What is the primary reason to align KCS practices with organizational goals?",
   answers: ["To simplify team management", "To ensure knowledge initiatives support business outcomes", "To reduce operational costs", "To increase the volume of knowledge articles"],
@@ -316,6 +305,7 @@ const questions = [
   answers: ["A process for editing knowledge articles", "A feedback mechanism for continuous improvement", "A method to duplicate articles for faster access", "A system for agent performance evaluation"],
   correct: 1
 },
+      //60.
 {
   question: "How does the KCS approach view knowledge ownership?",
   answers: ["Knowledge is owned by the team", "Knowledge is owned by the individual who created it", "Knowledge is owned by the customer", "Knowledge is a shared organizational asset"],
@@ -331,7 +321,6 @@ const questions = [
   answers: ["Enforcing strict policies on article creation", "Providing tools and removing barriers for KCS practices", "Assigning individual knowledge quotas", "Reducing the size of the knowledge base"],
   correct: 1
 },
-  //65.
 {
   question: "What does the 'Good Enough to Solve' principle emphasize?",
   answers: ["Publishing articles only after multiple reviews", "Ensuring articles meet basic needs to resolve issues", "Prioritizing aesthetic presentation over content", "Creating articles exclusively for high-priority issues"],
@@ -342,6 +331,7 @@ const questions = [
   answers: ["Focus on creating a limited number of high-quality articles", "Encourage knowledge sharing without overthinking value", "Avoid capturing repetitive issues", "Limit access to knowledge to maintain exclusivity"],
   correct: 1
 },
+      //65.
 {
   question: "How does KCS address the concept of knowledge decay?",
   answers: ["By archiving articles periodically", "Through continuous use and refinement of knowledge", "By setting expiration dates for all articles", "By limiting knowledge contributions"],
@@ -352,7 +342,6 @@ const questions = [
   answers: ["The number of articles published", "The number of articles reused to resolve issues", "The number of authors contributing", "The frequency of system updates"],
   correct: 1
 },
-  //70.
 {
   question: "What is a critical factor for ensuring the long-term success of KCS?",
   answers: ["Limiting contributions to senior staff", "Embedding KCS practices into daily workflows", "Focusing solely on technical accuracy", "Restricting knowledge sharing to internal teams"],
@@ -373,6 +362,7 @@ const questions = [
   ],
     "correct": 2
   },
+      //70.
   {
     "question": "How does the KCS principle of 'create value through use' challenge traditional knowledge management approaches?",
     "answers": [
@@ -393,7 +383,6 @@ const questions = [
     ],
     "correct": 1
   },
-  //75.
   {
     "question": "KCS advocates for 'just-in-time' knowledge capture and creation. What is the primary advantage of this approach compared to creating comprehensive documentation upfront?",
     "answers": [
@@ -424,6 +413,7 @@ const questions = [
     ],
     "correct": 0
   },
+      //75.
     {
     "question": "How does KCS address the challenge of knowledge becoming outdated or irrelevant over time?",
     "answers": [
