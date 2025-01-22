@@ -140,7 +140,7 @@ const questions = [
   {
     question: "What are three key components of the visibility matrix?",
     answers: ["Audience, Knowledge State, Access Rights", "Audience, Knowledge State, Reuse Counter", "Audience, Reuse Counter, Access Rights", "Knowledge State, Reuse Counter, Access Rights"],
-    correct: 1
+    correct: 0
   },
   {
     question: "Which term relates to the structure of KCS?",
@@ -161,12 +161,12 @@ const questions = [
   {
     question: "Which KCS role is responsible for providing the vision, objectives, and resources?",
     answers: ["KCS Council", "KCS Manager", "Management", "Sponsor"],
-    correct: 1
+    correct: 3
   },
   {
     question: "Which KCS role is limited to using existing articles, flagging articles as necessary, and adding new articles?",
     answers: ["KCS Candidate", "KCS Contributor", "KCS Domain Expert", "KCS Publisher"],
-    correct: 1
+    correct: 0
   },
   {
     question: "Which KCS role has the ability to fix knowledge articles as long as it is not visible to the customer?",
@@ -176,7 +176,7 @@ const questions = [
   {
     question: "Which KCS role is responsible for analyzing the knowledge usage and performing tasks related to problem management?",
     answers: ["KCS Coach", "KCS Publisher", "Knowledge Domain Expert", "Management"],
-    correct: 1
+    correct: 2
   },
   {
     question: "Which of the following is a leading indicator?",
@@ -202,7 +202,7 @@ const questions = [
   {
     question: "Which KCS role is the most important when it comes to establishing the vision and objectives of the KCS program?",
     answers: ["KCS Coach", "KCS Council", "KCS Program Team", "Sponsor"],
-    correct: 1
+    correct: 3
   }
   // Add more questions as needed
 ];
