@@ -679,6 +679,261 @@ const questions = [
       "To provide deep expertise in specific knowledge areas in KCS articles"
     ],
     "correct": 2
+  },
+    {
+    "question": "Which Statement best describes the benefit of Capture in the moment?",
+    "answers": [
+      "It ensures a high Article Quality Index (AQI)",
+      "It documents the experience and environment – what is happening and where it’s happening",
+      "It contributes to the team goals for Article creation and reuse (create early, create often)",
+      "It improves productivity and credibility to create the Article after the resolution step in the workflow"
+    ],
+    "correct": 2
+  },
+  {
+    "question": "Which of the following reasons determines if a statement is relevant to include in an article?",
+    "answers": [
+      "It’s how the customer perceives the issue",
+      "It’s all the possible ways the Support Analysts anticipate that a customer might describe the issue",
+      "It’s how the Support Analysts perceive the issue",
+      "It’s one of the selections from a predefined list of issues"
+    ],
+    "correct": 0
+  },
+  {
+    "question": "A KCS Publisher has a practice of making notes in a notepad as she works on a customer issue. When the customer's issue has been resolved, the KCS Publisher uses her notes to create a new Article in the knowledge base. Which of the eight KCS practices is being violated, and in which loop is this practice found?",
+    "answers": [
+      "Capture, in the Solve Loop",
+      "Capture, in the Evolve Loop",
+      "Structure, in the Solve Loop",
+      "Structure, in the Evolve Loop"
+    ],
+    "correct": 0
+  },
+  {
+    "question": "Which of the following three statements identify the importance of the visibility of a work in progress Article when the resolution is not known?",
+    "answers": [
+      "It ensures that incomplete articles will not show up in searches",
+      "It lets other analysts in the organization know that the problem has been reported and is a known issue.",
+      "It ensures that the collective experience of the organization is being captured throughout the process of solving problems.",
+      "If multiple open incidents have been linked to this work in progress Article, they can be quickly resolved when the Article resolution has been identified."
+    ],
+    "correct": [1, 2, 3]
+  },
+  //105.
+  {
+    "question": "Which two metrics are considered outcome measures?",
+    "answers": [
+      "Profitability",
+      "Analyst linking rate",
+      "Number of articles created by a Publisher",
+      "Number of deflections via self-service"
+    ],
+    "correct": [0, 3]
+  },
+  {
+    "question": "In addition to a deep understanding of the KCS principles and processes, a KCS Coach must possess several key personality characteristics. Which of the following personality traits would be most valuable for a KCS Coach to embody in order to ensure success in the role?",
+    "answers": [
+      "Irreverence",
+      "Trustworthiness",
+      "Confidence",
+      "Apathy"
+    ],
+    "correct": [1, 2]
+  },
+  {
+    "question": "Who should create and maintain knowledge articles?",
+    "answers": [
+      "Support Agents",
+      "Technical Writers",
+      "Marketing Writers",
+      "SMEs (Subject Matter Experts)"
+    ],
+    "correct": 0
+  },
+  {
+    "question": "What are two ways that structure contributes to the overall KCS process?",
+    "answers": [
+      "It improves the capture of chat sessions",
+      "It improves robust data entry of free-form text",
+      "It improves the readability for non-English speakers",
+      "It improves searchability in some search technologies"
+    ],
+    "correct": [2, 3]
+  },
+  {
+    "question": "In which order should the problem-solving steps be completed?",
+    "answers": [
+      "1. conduct research 2. collect the data 3. search the knowledge base 4. analyze the information",
+      "1. collect the data 2. analyze the information 3. search the knowledge base 4. conduct research",
+      "1. collect the data 2. search the knowledge base 3. analyze the information 4. conduct research",
+      "1. conduct research 2. search the knowledge base 3. collect the data 4. analyze the information"
+    ],
+    "correct": 2
+  },
+  //110.
+  {
+    "question": "In which two situations should a Support Analyst fix a KCS Article that is in a Validated state?",
+    "answers": [
+      "The Support Analyst is a KCS Contributor and determines the Article applies to an additional environment.",
+      "The Support Analyst is a KCS Candidate and finds a technical mistake in an Article and they are confident in the update.",
+      "The Support Analyst is a KCS Contributor and is confident in the information they want to add to the Article.",
+      "The Support Analyst is a KCS Candidate and identifies a technical issue with an Article that is not in their product."
+    ],
+    "correct": [0, 2]
+  },
+  {
+    "question": "Which two concepts exhibit collective ownership of an organization's knowledge base?",
+    "answers": [
+      "The technique of reuse is review",
+      "A KCS Coach will validate the quality of all articles before they are published",
+      "Multiple Support Analysts are required to contribute to the contents of an Article before it is published",
+      "Support Analysts are responsible for the quality of the articles they interact with in the knowledge base."
+    ],
+    "correct": [0, 3]
+  },
+    {
+    "question": "Which KCS activity improves Article findability?",
+    "answers": [
+      "Capturing all the ways the customer described the issue in the symptom field",
+      "Capturing the customer's context in the cause field",
+      "Periodically reviewing and updating all Not Validated articles",
+      "Expanding Article's environment statements to include all variations of product names"
+    ],
+    "correct": 0
+  },
+  {
+    "question": "A customer has contacted the support center via phone and is speaking with the Analyst who has expertise in the problem area. What should the Analyst do in the process to capture the relevant search words or phrases?",
+    "answers": [
+      "Concentrate on the conversation with the customer and interpret the customer's view of the problem into proper terms.",
+      "Take notes on the conversation with the customer to use later to frame the description of the issue.",
+      "Take notes in the knowledge management tool as the conversation is occurring to frame the description of the issue.",
+      "Capture a few key words in order to perform a search."
+    ],
+    "correct": 2
+  },
+  {
+    "question": "What are two factors that motivate Support Analysts to engage in the KCS practices in a valuable way?",
+    "answers": [
+      "Achieving their activity goals",
+      "Being recognized as contributing the most KCS articles",
+      "Understanding and buy-in to the company purpose and values",
+      "Feeling connected with a team and an ability to make a contribution"
+    ],
+    "correct": [2, 3]
+  },
+  //115.
+  {
+    "question": "When should you create a new Article in the knowledge base rather than link to an existing Article?",
+    "answers": [
+      "If the issue is impacting multiple customers",
+      "If the Article will be reused three times or more",
+      "If an existing Article has the same symptoms and resolution but different environment",
+      "If the existing Article has the same symptoms but a different environment and resolution"
+    ],
+    "correct": 3
+  },
+  {
+    "question": "What two things would help an organization minimize Content Standard violations?",
+    "answers": [
+      "Implement coaching",
+      "Set a goal for Article creation",
+      "Set a goal for Article Quality Index scores",
+      "Implement the searching is creating practice"
+    ],
+    "correct": [0, 2]
+  },
+  {
+    "question": "How does the reuse is review concept contribute to the KCS process?",
+    "answers": [
+      "It supports the requirement to review all articles",
+      "It ensures that the Article author gets credit for their contribution",
+      "It constantly improves the quality of articles that are being used",
+      "It provides Analysts the feedback they need to meet their modification goals"
+    ],
+    "correct": 2
+  },
+  {
+    "question": "Which is one of the four basic concepts of KCS?",
+    "answers": [
+      "KCS evolves content based on demand and usage",
+      "KCS is an application for capturing knowledge in the moment",
+      "KCS includes creating content after closing a service incident",
+      "KCS requires review of all knowledge for technical accuracy before publishing"
+    ],
+    "correct": 0
+  },
+  {
+    "question": "Why is capturing knowledge in the moment important?",
+    "answers": [
+      "Articles will not be searchable after they are captured",
+      "Tacit knowledge captured offline improves findability",
+      "Tacit knowledge becomes explicit at the moment of use",
+      "Capturing context-rich information slows down the workflow process"
+    ],
+    "correct": 2
+  },
+  //120.
+  {
+    "question": "Which describes the recommended way to document problem or symptom statements?",
+    "answers": [
+      "As complete thoughts",
+      "As complete sentences",
+      "In technically accurate terms",
+      "Use the words and phrases other Support Analysts would use to search"
+    ],
+    "correct": 0
+  },
+  {
+    "question": "Which KCS practice does creating Evolve Loop articles fall under?",
+    "answers": [
+      "Content Health",
+      "Process Integration",
+      "Reuse",
+      "Improve"
+    ],
+    "correct": 0
+  },
+  {
+    "question": "What are two reasons why KCS articles do not move through the article states?",
+    "answers": [
+      "Support Analysts are not updating the Article state",
+      "The organization has no formal process to review all draft articles",
+      "The organization has not implemented the Work-In-Progress state",
+      "Support Analysts are creating new articles rather than reusing existing articles"
+    ],
+    "correct": [0, 3]
+  },
+  {
+    "question": "What is the name of the data visualization tool frequently used in KCS to quickly identify team members who are creating value and those who may require additional coaching?",
+    "answers": [
+      "Funnel Chart",
+      "Venn Diagram",
+      "Radar Chart",
+      "Sunburst Diagram"
+    ],
+    "correct": 2
+  },
+  {
+    "question": "Which statements are true about Knowledge?",
+    "answers": [
+      "Information becomes Knowledge at the moment of use",
+      "Knowledge is a request for product enhancement",
+      "Knowledge is unorganized words or numbers",
+      "Knowledge is gained through interaction and experience"
+    ],
+    "correct": [0, 3]
+  },
+  //125.
+  {
+    "question": "What are the KCS-related responsibilities of people managers?",
+    "answers": [
+      "Ensure personal satisfaction",
+      "Assess KCS performance",
+      "Communicate the KCS vision",
+      "Enable KCS coaching"
+    ],
+    "correct": [1, 2, 3]
   }
   
   // Add more questions as needed
