@@ -940,7 +940,6 @@ const questions = [
 ];
 
 
-
 let currentQuestionIndex = 0;
 let score = 0;
 let askedQuestions = [];
@@ -949,7 +948,6 @@ let isQuestionAnswered = false; // To check if the question has been answered
 function loadQuestion() {
   const questionContainer = document.getElementById("question-container");
   const answersContainer = document.getElementById("answers");
-  const questionCountContainer = document.getElementById("question-count");
 
   // If all 20 questions have been asked, grade the quiz
   if (askedQuestions.length === 20) {
@@ -960,7 +958,7 @@ function loadQuestion() {
   // Randomly select a question that has not been asked yet
   do {
     currentQuestionIndex = Math.floor(Math.random() * questions.length);
-  } while (askedQuestions.includes(currentQuestionIndex));
+  } while (askedQuestions.includes(currentQuestionIndex)); // Ensure no repeats
 
   askedQuestions.push(currentQuestionIndex);
 
@@ -971,16 +969,12 @@ function loadQuestion() {
   // Display the answer choices
   question.answers.forEach((answer, index) => {
     const label = document.createElement("label");
-    label.innerHTML = 
-      <input type="${Array.isArray(question.correctAnswers) ? "checkbox" : "radio"}" name="answer" value="${index}">
+    label.innerHTML = `
+      <input type="radio" name="answer" value="${index}">
       ${answer}
-    ;
+    `;
     answersContainer.appendChild(label);
   });
-
-  // Update the question count (e.g., Question 1 of 20)
-  const currentQuestionNumber = askedQuestions.length;
-  questionCountContainer.textContent = Question ${currentQuestionNumber} of 20;
 
   // Reset the isQuestionAnswered flag for the new question
   isQuestionAnswered = false;
@@ -992,39 +986,23 @@ function loadQuestion() {
 function handleFormSubmit(event) {
   event.preventDefault();
 
-  const selected = Array.from(document.querySelectorAll("input[name='answer']:checked"));
+  const selected = document.querySelector("input[name='answer']:checked");
   const feedback = document.getElementById("feedback");
 
-  if (selected.length === 0) {
-    feedback.textContent = "Please select at least one answer.";
+  if (!selected) {
+    feedback.textContent = "Please select an answer.";
     return;
   }
 
-  const question = questions[currentQuestionIndex];
-  const selectedValues = selected.map(input => parseInt(input.value));
-
-  let isCorrect;
-  if (Array.isArray(question.correctAnswers)) {
-    // For multiple correct answers
-    isCorrect =
-      selectedValues.length === question.correctAnswers.length &&
-      selectedValues.every(val => question.correctAnswers.includes(val));
-  } else {
-    // For single correct answer
-    isCorrect = selectedValues[0] === question.correct;
-  }
+  const isCorrect = parseInt(selected.value) === questions[currentQuestionIndex].correct;
 
   if (isCorrect) {
     score++;
     feedback.textContent = "Correct!";
   } else {
-    if (Array.isArray(question.correctAnswers)) {
-      const correctAnswersText = question.correctAnswers.map(idx => question.answers[idx]).join(", ");
-      feedback.textContent = Wrong. Correct answers are: ${correctAnswersText};
-    } else {
-      const correctAnswerText = question.answers[question.correct];
-      feedback.textContent = Wrong. The correct answer is: ${correctAnswerText};
-    }
+    // Show the correct answer if the user is wrong
+    const correctAnswer = questions[currentQuestionIndex].answers[questions[currentQuestionIndex].correct];
+    feedback.textContent = `Wrong answer. The correct answer is: ${correctAnswer}`;
   }
 
   // Set the flag to true and enable the "Next Question" button
@@ -1036,10 +1014,6 @@ function nextQuestion() {
   // Only load the next question if the current one has been answered
   if (!isQuestionAnswered) return;
 
-    // Clear feedback message
-  const feedback = document.getElementById("feedback");
-  feedback.textContent = "";
-
   loadQuestion(); // Load the next question
 }
 
@@ -1050,7 +1024,7 @@ function displayFinalScore() {
 
   questionContainer.textContent = "Quiz Complete!";
   answersForm.style.display = "none";
-  scoreDisplay.textContent = Your final score is ${score} out of 20.;
+  scoreDisplay.textContent = `Your final score is ${score} out of 20.`;
 
   // Reset for a new quiz after a delay
   setTimeout(() => {
