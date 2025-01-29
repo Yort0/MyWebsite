@@ -966,17 +966,26 @@ function loadQuestion() {
 
   const question = questions[currentQuestionIndex];
   questionContainer.textContent = question.question;
-  answersContainer.innerHTML = "";
+  answersContainer.innerHTML = ""; //Clear previous answers
 
   // Display the answer choices
-  question.answers.forEach((answer, index) => {
-    const label = document.createElement("label");
-    label.innerHTML = `
-      <input type="${Array.isArray(question.correctAnswers) ? "checkbox" : "radio"}" name="answer" value="${index}">
-      ${answer}
-    `;
-    answersContainer.appendChild(label);
-  });
+ question.answers.forEach((answer, index) => {
+  const label = document.createElement("label");
+  const input = document.createElement("input");
+
+  if (Array.isArray(question.correct)) { 
+    input.type = "checkbox"; // Multiple correct answers → checkboxes
+  } else {
+    input.type = "radio"; // Single correct answer → radio
+  }
+
+  input.name = `answer-${index}`; // Unique name for checkboxes
+  input.value = index;
+
+  label.appendChild(input);
+  label.appendChild(document.createTextNode(` ${answer}`));
+  answersContainer.appendChild(label);
+});
 
   // Update the question count (e.g., Question 1 of 20)
   const currentQuestionNumber = askedQuestions.length;
@@ -992,7 +1001,8 @@ function loadQuestion() {
 function handleFormSubmit(event) {
   event.preventDefault();
 
-  const selectedInputs = document.querySelectorAll('input[name="answer"]:checked');
+  // Get all selected checkboxes/radio buttons
+  const selectedInputs = document.querySelectorAll('input[type="checkbox"]:checked, input[type="radio"]:checked');
   let selectedValues = Array.from(selectedInputs).map(input => parseInt(input.value));
 
   if (selectedValues.length === 0) {
@@ -1001,10 +1011,11 @@ function handleFormSubmit(event) {
   }
 
   let isCorrect;
-  if (Array.isArray(question.correctAnswers)) {
-    // Sort both arrays before comparing to avoid order issues
-    isCorrect = selectedValues.sort().toString() === question.correctAnswers.sort().toString();
+  if (Array.isArray(question.correct)) {
+    // Multiple correct answers: Sort before comparing
+    isCorrect = selectedValues.sort().toString() === question.correct.sort().toString();
   } else {
+    // Single correct answer
     isCorrect = selectedValues[0] === question.correct;
   }
 
@@ -1012,8 +1023,8 @@ function handleFormSubmit(event) {
     score++;
     feedback.textContent = "Correct!";
   } else {
-    const correctAnswerText = Array.isArray(question.correctAnswers)
-      ? question.correctAnswers.map(idx => question.answers[idx]).join(", ")
+    const correctAnswerText = Array.isArray(question.correct)
+      ? question.correct.map(idx => question.answers[idx]).join(", ")
       : question.answers[question.correct];
 
     feedback.textContent = `Wrong. The correct answer is: ${correctAnswerText}`;
