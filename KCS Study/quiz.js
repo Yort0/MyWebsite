@@ -992,25 +992,19 @@ function loadQuestion() {
 function handleFormSubmit(event) {
   event.preventDefault();
 
-  const selected = Array.from(document.querySelectorAll("input[name='answer']:checked"));
-  const feedback = document.getElementById("feedback");
+  const selectedInputs = document.querySelectorAll('input[name="answer"]:checked');
+  let selectedValues = Array.from(selectedInputs).map(input => parseInt(input.value));
 
-  if (selected.length === 0) {
-    feedback.textContent = "Please select at least one answer.";
+  if (selectedValues.length === 0) {
+    feedback.textContent = "Please select an answer.";
     return;
   }
 
-  const question = questions[currentQuestionIndex];
-  const selectedValues = selected.map(input => parseInt(input.value));
-
   let isCorrect;
   if (Array.isArray(question.correctAnswers)) {
-    // For multiple correct answers
-    isCorrect =
-      selectedValues.length === question.correctAnswers.length &&
-      selectedValues.every(val => question.correctAnswers.includes(val));
+    // Sort both arrays before comparing to avoid order issues
+    isCorrect = selectedValues.sort().toString() === question.correctAnswers.sort().toString();
   } else {
-    // For single correct answer
     isCorrect = selectedValues[0] === question.correct;
   }
 
@@ -1018,18 +1012,15 @@ function handleFormSubmit(event) {
     score++;
     feedback.textContent = "Correct!";
   } else {
-    if (Array.isArray(question.correctAnswers)) {
-      const correctAnswersText = question.correctAnswers.map(idx => question.answers[idx]).join(", ");
-      feedback.textContent = `Wrong. Correct answers are: ${correctAnswersText}`;
-    } else {
-      const correctAnswerText = question.answers[question.correct];
-      feedback.textContent = `Wrong. The correct answer is: ${correctAnswerText}`;
-    }
+    const correctAnswerText = Array.isArray(question.correctAnswers)
+      ? question.correctAnswers.map(idx => question.answers[idx]).join(", ")
+      : question.answers[question.correct];
+
+    feedback.textContent = `Wrong. The correct answer is: ${correctAnswerText}`;
   }
 
-  // Set the flag to true and enable the "Next Question" button
   isQuestionAnswered = true;
-  document.getElementById("next-btn").disabled = false;
+  nextBtn.disabled = false;
 }
 
 function nextQuestion() {
