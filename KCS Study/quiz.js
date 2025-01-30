@@ -949,16 +949,14 @@ function loadQuestion() {
   const questionContainer = document.getElementById("question-container");
   const answersContainer = document.getElementById("answers");
 
-  // If all 20 questions have been asked, grade the quiz
   if (askedQuestions.length === 20) {
     displayFinalScore();
     return;
   }
 
-  // Randomly select a question that has not been asked yet
   do {
     currentQuestionIndex = Math.floor(Math.random() * questions.length);
-  } while (askedQuestions.includes(currentQuestionIndex)); // Ensure no repeats
+  } while (askedQuestions.includes(currentQuestionIndex));
 
   askedQuestions.push(currentQuestionIndex);
 
@@ -966,55 +964,54 @@ function loadQuestion() {
   questionContainer.textContent = question.question;
   answersContainer.innerHTML = "";
 
-  // Display the answer choices
+  const isMultipleChoice = question.correct.length > 1; // Determine if the question has multiple correct answers
+
   question.answers.forEach((answer, index) => {
     const label = document.createElement("label");
     label.innerHTML = `
-      <input type="radio" name="answer" value="${index}">
+      <input type="${isMultipleChoice ? "checkbox" : "radio"}" name="answer" value="${index}">
       ${answer}
     `;
     answersContainer.appendChild(label);
   });
 
-  // Reset the isQuestionAnswered flag for the new question
   isQuestionAnswered = false;
-
-  // Enable the "Next Question" button
   document.getElementById("next-btn").disabled = true;
 }
 
 function handleFormSubmit(event) {
   event.preventDefault();
 
-  const selected = document.querySelector("input[name='answer']:checked");
+  const selectedInputs = document.querySelectorAll("input[name='answer']:checked");
   const feedback = document.getElementById("feedback");
 
-  if (!selected) {
-    feedback.textContent = "Please select an answer.";
+  if (selectedInputs.length === 0) {
+    feedback.textContent = "Please select at least one answer.";
     return;
   }
 
-  const isCorrect = parseInt(selected.value) === questions[currentQuestionIndex].correct;
+  const selectedValues = Array.from(selectedInputs).map(input => parseInt(input.value));
+  const correctAnswers = questions[currentQuestionIndex].correct;
+
+  // Check if selected answers match correct answers exactly
+  const isCorrect = selectedValues.length === correctAnswers.length &&
+                    selectedValues.every(val => correctAnswers.includes(val));
 
   if (isCorrect) {
     score++;
     feedback.textContent = "Correct!";
   } else {
-    // Show the correct answer if the user is wrong
-    const correctAnswer = questions[currentQuestionIndex].answers[questions[currentQuestionIndex].correct];
-    feedback.textContent = `Wrong answer. The correct answer is: ${correctAnswer}`;
+    const correctAnswerText = correctAnswers.map(index => questions[currentQuestionIndex].answers[index]).join(", ");
+    feedback.textContent = `Wrong answer. The correct answers are: ${correctAnswerText}`;
   }
 
-  // Set the flag to true and enable the "Next Question" button
   isQuestionAnswered = true;
   document.getElementById("next-btn").disabled = false;
 }
 
 function nextQuestion() {
-  // Only load the next question if the current one has been answered
   if (!isQuestionAnswered) return;
-
-  loadQuestion(); // Load the next question
+  loadQuestion();
 }
 
 function displayFinalScore() {
@@ -1026,19 +1023,16 @@ function displayFinalScore() {
   answersForm.style.display = "none";
   scoreDisplay.textContent = `Your final score is ${score} out of 20.`;
 
-  // Reset for a new quiz after a delay
   setTimeout(() => {
     resetQuiz();
-  }, 5000); // Delay before resetting the quiz for retake
+  }, 5000);
 }
 
 function resetQuiz() {
-  // Reset variables
   score = 0;
   askedQuestions = [];
   currentQuestionIndex = 0;
 
-  // Show the form again and load the first question
   document.getElementById("answers-form").style.display = "block";
   loadQuestion();
 }
