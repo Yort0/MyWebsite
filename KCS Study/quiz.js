@@ -945,18 +945,17 @@ let score = 0;
 let askedQuestions = [];
 let isQuestionAnswered = false;
 
-// Load a new question
 function loadQuestion() {
   const questionContainer = document.getElementById("question-container");
   const answersContainer = document.getElementById("answers");
   const nextBtn = document.getElementById("next-btn");
+  const questionCountDisplay = document.getElementById("question-count");
 
   if (askedQuestions.length === 20) {
     displayFinalScore();
     return;
   }
 
-  // Select a new random question
   do {
     currentQuestionIndex = Math.floor(Math.random() * questions.length);
   } while (askedQuestions.includes(currentQuestionIndex));
@@ -967,7 +966,9 @@ function loadQuestion() {
   questionContainer.textContent = question.question;
   answersContainer.innerHTML = "";
 
-  // Check if the question is multiple-choice
+  // Update the question count
+  questionCountDisplay.textContent = `Question ${askedQuestions.length} of 20`;
+
   const isMultipleChoice = Array.isArray(question.correct);
   const inputType = isMultipleChoice ? "checkbox" : "radio";
 
@@ -984,7 +985,6 @@ function loadQuestion() {
   nextBtn.disabled = true;
 }
 
-// Prevent selecting too many checkboxes in multiple-choice questions
 function limitSelections(maxSelections) {
   const selectedCheckboxes = document.querySelectorAll("input[type='checkbox']:checked");
   if (selectedCheckboxes.length > maxSelections) {
@@ -992,7 +992,6 @@ function limitSelections(maxSelections) {
   }
 }
 
-// Handle answer submission
 function handleFormSubmit(event) {
   event.preventDefault();
 
@@ -1024,13 +1023,11 @@ function handleFormSubmit(event) {
   document.getElementById("next-btn").disabled = false;
 }
 
-// Move to the next question
 function nextQuestion() {
   if (!isQuestionAnswered) return;
   loadQuestion();
 }
 
-// Display final score
 function displayFinalScore() {
   const questionContainer = document.getElementById("question-container");
   const answersForm = document.getElementById("answers-form");
@@ -1045,7 +1042,6 @@ function displayFinalScore() {
   }, 5000);
 }
 
-// Reset quiz
 function resetQuiz() {
   score = 0;
   askedQuestions = [];
@@ -1054,7 +1050,6 @@ function resetQuiz() {
   loadQuestion();
 }
 
-// Attach event listeners
 document.addEventListener("DOMContentLoaded", function() {
   document.getElementById("answers-form").addEventListener("submit", handleFormSubmit);
   document.getElementById("next-btn").addEventListener("click", nextQuestion);
