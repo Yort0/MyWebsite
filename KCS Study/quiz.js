@@ -950,6 +950,10 @@ function loadQuestion() {
   const answersContainer = document.getElementById("answers");
   const nextBtn = document.getElementById("next-btn");
   const questionCountDisplay = document.getElementById("question-count");
+  const feedback = document.getElementById("feedback");
+
+  // Clear feedback each time the question is loaded
+  feedback.textContent = "";
 
   if (askedQuestions.length === 20) {
     displayFinalScore();
@@ -1018,6 +1022,10 @@ function handleFormSubmit(event) {
     const correctAnswerText = correctAnswers.map(index => questions[currentQuestionIndex].answers[index]).join(", ");
     feedback.textContent = `Wrong answer. The correct answer(s): ${correctAnswerText}`;
   }
+
+  // Disable further selections and show feedback
+  const inputs = document.querySelectorAll("input[name='answer']");
+  inputs.forEach(input => input.disabled = true);
 
   isQuestionAnswered = true;
   document.getElementById("next-btn").disabled = false;
