@@ -943,17 +943,20 @@ const questions = [
 let currentQuestionIndex = 0;
 let score = 0;
 let askedQuestions = [];
-let isQuestionAnswered = false; // To check if the question has been answered
+let isQuestionAnswered = false;
 
+// Load question
 function loadQuestion() {
   const questionContainer = document.getElementById("question-container");
   const answersContainer = document.getElementById("answers");
+  const nextBtn = document.getElementById("next-btn");
 
   if (askedQuestions.length === 20) {
     displayFinalScore();
     return;
   }
 
+  // Select a random question that hasn't been asked
   do {
     currentQuestionIndex = Math.floor(Math.random() * questions.length);
   } while (askedQuestions.includes(currentQuestionIndex));
@@ -964,56 +967,67 @@ function loadQuestion() {
   questionContainer.textContent = question.question;
   answersContainer.innerHTML = "";
 
-  const isMultipleChoice = question.correct.length > 1; // Determine if the question has multiple correct answers
+  // Determine if it's a single or multiple answer question
+  const isMultipleChoice = question.correct.length > 1;
+  const inputType = isMultipleChoice ? "checkbox" : "radio";
 
   question.answers.forEach((answer, index) => {
     const label = document.createElement("label");
     label.innerHTML = `
-      <input type="${isMultipleChoice ? "checkbox" : "radio"}" name="answer" value="${index}">
+      <input type="${inputType}" name="answer" value="${index}">
       ${answer}
     `;
     answersContainer.appendChild(label);
   });
 
   isQuestionAnswered = false;
-  document.getElementById("next-btn").disabled = true;
+  nextBtn.disabled = true;
 }
 
+// Handle answer submission
 function handleFormSubmit(event) {
   event.preventDefault();
+  console.log("Submit button clicked!");
 
   const selectedInputs = document.querySelectorAll("input[name='answer']:checked");
   const feedback = document.getElementById("feedback");
 
   if (selectedInputs.length === 0) {
     feedback.textContent = "Please select at least one answer.";
+    console.log("No answer selected.");
     return;
   }
 
   const selectedValues = Array.from(selectedInputs).map(input => parseInt(input.value));
-  const correctAnswers = questions[currentQuestionIndex].correct;
+  console.log("Selected values:", selectedValues);
 
-  // Check if selected answers match correct answers exactly
+  const correctAnswers = questions[currentQuestionIndex].correct;
+  console.log("Correct answers:", correctAnswers);
+
   const isCorrect = selectedValues.length === correctAnswers.length &&
                     selectedValues.every(val => correctAnswers.includes(val));
 
   if (isCorrect) {
     score++;
     feedback.textContent = "Correct!";
+    console.log("Correct answer!");
   } else {
     const correctAnswerText = correctAnswers.map(index => questions[currentQuestionIndex].answers[index]).join(", ");
     feedback.textContent = `Wrong answer. The correct answers are: ${correctAnswerText}`;
+    console.log("Wrong answer.");
   }
 
   isQuestionAnswered = true;
   document.getElementById("next-btn").disabled = false;
 }
 
+// Move to the next question
 function nextQuestion() {
   if (!isQuestionAnswered) return;
   loadQuestion();
 }
 
+// Display final score
 function displayFinalScore() {
   const questionContainer = document.getElementById("question-container");
   const answersForm = document.getElementById("answers-form");
@@ -1028,16 +1042,31 @@ function displayFinalScore() {
   }, 5000);
 }
 
+// Reset quiz for retry
 function resetQuiz() {
   score = 0;
   askedQuestions = [];
   currentQuestionIndex = 0;
-
   document.getElementById("answers-form").style.display = "block";
   loadQuestion();
 }
 
-document.getElementById("answers-form").addEventListener("submit", handleFormSubmit);
-document.getElementById("next-btn").addEventListener("click", nextQuestion);
-document.addEventListener("DOMContentLoaded", loadQuestion);
+// Attach event listeners
+document.addEventListener("DOMContentLoaded", function() {
+  const form = document.getElementById("answers-form");
+  const nextBtn = document.getElementById("next-btn");
 
+  if (form) {
+    form.addEventListener("submit", handleFormSubmit);
+  } else {
+    console.error("Error: #answers-form not found");
+  }
+
+  if (nextBtn) {
+    nextBtn.addEventListener("click", nextQuestion);
+  } else {
+    console.error("Error: #next-btn not found");
+  }
+
+  loadQuestion();
+});
