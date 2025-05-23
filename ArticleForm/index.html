@@ -44,16 +44,20 @@ try {
   const res = await fetch('https://c5b2-98-97-15-190.ngrok-free.app/format-article', {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({ subject, transcript, resolution })
+    body: JSON.stringify(data) // ✅ USE the data object you defined above
   });
 
   if (!res.ok) {
     throw new Error(`Server error: ${res.status}`);
   }
 
-  const data = await res.json();
-  console.log(data); // Handle the returned article here
+  const result = await res.json(); // renamed to avoid shadowing `data`
+  console.log(result);
+
+  // Optional: Show the result in the <pre> box
+  output.textContent = `Title: ${result.title}\n\nObjectives: ${result.objectives}\n\nResolution:\n${result.resolution}`;
 } catch (err) {
+  output.textContent = 'Error submitting article. See console for details.';
   console.error('Error submitting article:', err);
 }
 
