@@ -40,18 +40,23 @@
       const output = document.getElementById('output');
       output.textContent = 'Generating...';
 
-      try {
-        const res = await fetch('http://localhost:8000/format-article', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify(data),
-        });
+try {
+  const res = await fetch('https://c5b2-98-97-15-190.ngrok-free.app/format-article', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ subject, transcript, resolution })
+  });
 
-        const json = await res.json();
-        output.textContent = JSON.stringify(json.article, null, 2);
-      } catch (err) {
-        output.textContent = '❌ Error: ' + err.message;
-      }
+  if (!res.ok) {
+    throw new Error(`Server error: ${res.status}`);
+  }
+
+  const data = await res.json();
+  console.log(data); // Handle the returned article here
+} catch (err) {
+  console.error('Error submitting article:', err);
+}
+
     });
   </script>
 </body>
